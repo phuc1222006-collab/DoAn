@@ -8,5 +8,6 @@ namespace ET
 {
     internal class ET_ChamCong
     {
+        //beo
     }
 }
