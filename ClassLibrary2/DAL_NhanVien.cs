@@ -1,53 +1,39 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
-using ClassLibrary2;
-using ET;
+using ClassLibrary2; 
+
 namespace DAL
 {
-
     public class DAL_NhanVien
     {
-
-        QuanLyNhanSuDataContext db = new QuanLyNhanSuDataContext();
-        //lấy ds
-        public IQueryable LayDanhSachLenGrid()
+        public IQueryable<NhanVien> LayDanhSachLenGrid()
         {
-            var ds = from s in db.NhanViens
-                     select new
-                     {
-                         s.MaNhanVien,
-                         s.HoTen,
-                         s.GioiTinh,
-                         s.NgaySinh,
-                         s.MaPhongBan,
-                         s.MaChucDanh,
-                         s.TrangThaiLamViec
-                     };
-            return ds;
+            // BẮT BUỘC KHỞI TẠO db MỚI Ở ĐÂY ĐỂ TRÁNH CACHE DỮ LIỆU CŨ
+            QuanLyNhanSuDataContext dbMoi = new QuanLyNhanSuDataContext();
+            return dbMoi.NhanViens;
         }
 
-
-
-        //thêm
+        // 2. THÊM
         public bool ThemNhanVien(NhanVien nv)
         {
             try
             {
-                db.NhanViens.InsertOnSubmit(nv);
-                db.SubmitChanges();
-                return true;
+                // BẮT BUỘC DÙNG USING Ở ĐÂY
+                using (QuanLyNhanSuDataContext db = new QuanLyNhanSuDataContext())
+                {
+                    db.NhanViens.InsertOnSubmit(nv);
+                    db.SubmitChanges();
+                    return true;
+                }
             }
             catch
             {
                 return false;
             }
         }
-        //xóa
+
+        // 3. XÓA
         public bool XoaNhanVien(string maNV)
         {
             using (QuanLyNhanSuDataContext db = new QuanLyNhanSuDataContext())
@@ -62,7 +48,8 @@ namespace DAL
                 return false;
             }
         }
-        //sửa
+
+        // 4. SỬA
         public bool SuaNhanVien(NhanVien nv)
         {
             using (QuanLyNhanSuDataContext db = new QuanLyNhanSuDataContext())
@@ -70,7 +57,6 @@ namespace DAL
                 var existingNV = db.NhanViens.FirstOrDefault(n => n.MaNhanVien == nv.MaNhanVien);
                 if (existingNV != null)
                 {
-                    existingNV.MaNhanVien = nv.MaNhanVien;
                     existingNV.HoTen = nv.HoTen;
                     existingNV.GioiTinh = nv.GioiTinh;
                     existingNV.NgaySinh = nv.NgaySinh;

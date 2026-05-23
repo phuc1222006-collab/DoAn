@@ -8,5 +8,11 @@ namespace ET
 {
     public class ET_NhomQuyen
     {
+
+        public string MaNhomQuyen { get; set; }
+        public string TenNhomQuyen { get; set; }
+        public string MoTa { get; set; }
+
     }
 }
+

@@ -16,5 +16,10 @@ namespace QLNS
         {
             InitializeComponent();
         }
+
+        private void btnDuyetDon_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

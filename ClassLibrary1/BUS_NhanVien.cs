@@ -15,9 +15,15 @@ namespace BUS
         DAL_NhanVien dAL_NhanVien = new DAL_NhanVien();
 
         //lấy ds
-        public IQueryable LayDanhSachLenGrid()
+        public List<ET_NhanVien> LayDanhSachLenGrid()
         {
-            return dAL_NhanVien.LayDanhSachLenGrid();
+            var data = dAL_NhanVien.LayDanhSachLenGrid();
+            return data.Select(nv => new ET_NhanVien
+            {
+                MaNhanVien = nv.MaNhanVien,
+                HoTen = nv.HoTen
+                
+            }).ToList();
         }
     }
 }

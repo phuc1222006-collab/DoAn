@@ -166,8 +166,23 @@
     <Compile Include="trangchu.Designer.cs">
       <DependentUpon>trangchu.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Formchamcong.resx">
+      <DependentUpon>Formchamcong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formdanhmuc.resx">
+      <DependentUpon>Formdanhmuc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formhethong.resx">
+      <DependentUpon>Formhethong.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNhanVien.resx">
       <DependentUpon>FormNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formtaichinh.resx">
+      <DependentUpon>Formtaichinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formtuyendung.resx">
+      <DependentUpon>Formtuyendung.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

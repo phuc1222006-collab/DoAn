@@ -134,3 +134,8 @@ D:\DoAn\QLNS\bin\Debug\System.ValueTuple.xml
 D:\DoAn\QLNS\bin\Debug\ClassLibrary2.pdb
 D:\DoAn\QLNS\bin\Debug\ClassLibrary2.dll.config
 D:\DoAn\QLNS\obj\Debug\QLNS.csproj.Up2Date
+D:\DoAn\QLNS\obj\Debug\QLNS.Formhethong.resources
+D:\DoAn\QLNS\obj\Debug\QLNS.Formchamcong.resources
+D:\DoAn\QLNS\obj\Debug\QLNS.Formtaichinh.resources
+D:\DoAn\QLNS\obj\Debug\QLNS.Formdanhmuc.resources
+D:\DoAn\QLNS\obj\Debug\QLNS.Formtuyendung.resources

@@ -16,5 +16,15 @@ namespace QLNS
         {
             InitializeComponent();
         }
+
+        private void txtTenPhongBan_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTenChucDanh_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
