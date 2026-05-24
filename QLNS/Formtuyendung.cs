@@ -84,6 +84,10 @@ namespace QLNS
                 LoadDataUngVien();       // Load Grid
                 isLoadedUngVien = true;
             }
+            else if (tabTuyenDung.SelectedIndex == 1 && !isLoadedUngVien)
+            {
+                
+            }
         }
         #endregion
 
@@ -258,6 +262,10 @@ namespace QLNS
 
             txtMaUV.Enabled = false; // Bảo mật khóa chính
         }
+
+        #endregion
+
+        #region 4. TAB Lịch Phỏng Vấn
 
         #endregion
     }

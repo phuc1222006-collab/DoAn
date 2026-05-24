@@ -29,7 +29,6 @@ namespace ClassLibrary2
         }
         public bool XoaNhomQuyen(NhomQuyen nq)
         {
-
             try
             {
                 using (var db = new QuanLyNhanSuDataContext())

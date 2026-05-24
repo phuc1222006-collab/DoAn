@@ -146,5 +146,19 @@ namespace QLNS
             FrmDashboard frm = new FrmDashboard();
             OpenChildForm(frm);
         }
+
+        private void btndangxuat_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn có chắc chắn muốn đăng xuất?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                // 1. Xóa trí nhớ đăng nhập
+                Properties.Settings.Default.IsRemembered = false;
+                Properties.Settings.Default.Username = "";
+                Properties.Settings.Default.Save();
+
+                // 2. Khởi động lại ứng dụng (App sẽ chạy lại file Program.cs, thấy IsRemembered = false nên tự động mở Form Đăng Nhập)
+                Application.Restart();
+            }
+        }
     }
 }

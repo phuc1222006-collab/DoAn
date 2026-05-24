@@ -139,3 +139,5 @@ D:\DoAn\QLNS\obj\Debug\QLNS.Formchamcong.resources
 D:\DoAn\QLNS\obj\Debug\QLNS.Formtaichinh.resources
 D:\DoAn\QLNS\obj\Debug\QLNS.Formdanhmuc.resources
 D:\DoAn\QLNS\obj\Debug\QLNS.Formtuyendung.resources
+D:\DoAn\QLNS\obj\Debug\QLNS.FormDangNhap.resources
+D:\DoAn\QLNS\obj\Debug\QLNS.FormCaiDatDB.resources

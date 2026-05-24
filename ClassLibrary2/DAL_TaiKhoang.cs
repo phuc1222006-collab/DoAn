@@ -50,5 +50,18 @@ namespace ClassLibrary2
                 return true;
             }
         }
+        public bool KiemTraDangNhap(string username, string password)
+        {
+            using (QuanLyNhanSuDataContext db = new QuanLyNhanSuDataContext())
+            {
+                // Tìm tài khoản khớp User, Pass và BẮT BUỘC phải đang Hoạt động
+                var account = db.TaiKhoans.FirstOrDefault(x =>
+                    x.TenDangNhap == username &&
+                    x.MatKhau == password &&
+                    x.TrangThaiHoatDong == true);
+
+                return account != null; // Có dữ liệu -> True, Null -> False
+            }
+        }
     }
 }

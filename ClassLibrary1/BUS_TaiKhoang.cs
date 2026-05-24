@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using ClassLibrary2; // Chứa DAL_TaiKhoan và LINQ DataContext
+using ClassLibrary2; 
 using ClassLibrary3.ET.ET;
-using ET;            // Chứa ET_TaiKhoan
+using ET;           
 
 namespace ClassLibrary1
 {
@@ -56,6 +56,17 @@ namespace ClassLibrary1
             };
 
             return DAL_taikhoang.SuaTaiKhoan(tk);
+        }
+        public bool KiemTraDangNhap(string username, string password)
+        {
+            // Kiểm tra bảo mật cơ bản: Chặn ngay nếu nhập rỗng (Không cần gọi xuống DAL)
+            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+            {
+                return false;
+            }
+
+            // Nếu thỏa mãn, truyền tín hiệu xuống DAL để truy vấn Database
+            return DAL_taikhoang.KiemTraDangNhap(username, password);
         }
     }
 }

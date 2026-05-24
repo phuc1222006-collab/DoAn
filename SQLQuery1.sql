@@ -1,7 +1,7 @@
-﻿CREATE DATABASE QuanLyNhanSu;
+﻿CREATE DATABASE QuanLyNhanSu1;
 GO
 
-USE QuanLyNhanSu;
+USE QuanLyNhanSu1;
 GO
 
 -- =====================================================================

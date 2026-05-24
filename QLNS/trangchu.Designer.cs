@@ -60,6 +60,7 @@
             this.ribbonTextBox1 = new System.Windows.Forms.RibbonTextBox();
             this.object_05cbbec2_f02d_4e76_add1_4caed7ab728c = new System.Windows.Forms.RibbonOrbRecentItem();
             this.object_cec3f204_0b42_435a_bd87_acd24ef1259f = new System.Windows.Forms.RibbonOrbRecentItem();
+            this.btndangxuat = new System.Windows.Forms.RibbonOrbMenuItem();
             this.SuspendLayout();
             // 
             // ribbon1
@@ -76,8 +77,9 @@
             this.ribbon1.OrbDropDown.MenuItems.Add(this.ribbonSeparator1);
             this.ribbon1.OrbDropDown.MenuItems.Add(this.rbtntrangchu);
             this.ribbon1.OrbDropDown.MenuItems.Add(this.rtbthoat);
+            this.ribbon1.OrbDropDown.MenuItems.Add(this.btndangxuat);
             this.ribbon1.OrbDropDown.Name = "";
-            this.ribbon1.OrbDropDown.Size = new System.Drawing.Size(527, 163);
+            this.ribbon1.OrbDropDown.Size = new System.Drawing.Size(527, 207);
             this.ribbon1.OrbDropDown.TabIndex = 0;
             this.ribbon1.RibbonTabFont = new System.Drawing.Font("Trebuchet MS", 9F);
             this.ribbon1.Size = new System.Drawing.Size(1280, 160);
@@ -319,6 +321,16 @@
             this.object_cec3f204_0b42_435a_bd87_acd24ef1259f.SmallImage = ((System.Drawing.Image)(resources.GetObject("object_cec3f204_0b42_435a_bd87_acd24ef1259f.SmallImage")));
             this.object_cec3f204_0b42_435a_bd87_acd24ef1259f.Text = "Thoát";
             // 
+            // btndangxuat
+            // 
+            this.btndangxuat.DropDownArrowDirection = System.Windows.Forms.RibbonArrowDirection.Left;
+            this.btndangxuat.Image = ((System.Drawing.Image)(resources.GetObject("btndangxuat.Image")));
+            this.btndangxuat.LargeImage = ((System.Drawing.Image)(resources.GetObject("btndangxuat.LargeImage")));
+            this.btndangxuat.Name = "btndangxuat";
+            this.btndangxuat.SmallImage = ((System.Drawing.Image)(resources.GetObject("btndangxuat.SmallImage")));
+            this.btndangxuat.Text = "đăng xuất";
+            this.btndangxuat.Click += new System.EventHandler(this.btndangxuat_Click);
+            // 
             // trangchu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -374,5 +386,6 @@
         private System.Windows.Forms.RibbonOrbMenuItem rtbthoat;
         private System.Windows.Forms.RibbonOrbRecentItem object_05cbbec2_f02d_4e76_add1_4caed7ab728c;
         private System.Windows.Forms.RibbonOrbRecentItem object_cec3f204_0b42_435a_bd87_acd24ef1259f;
+        private System.Windows.Forms.RibbonOrbMenuItem btndangxuat;
     }
 }
