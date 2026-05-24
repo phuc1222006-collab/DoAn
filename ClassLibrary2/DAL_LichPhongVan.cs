@@ -42,8 +42,8 @@ namespace ClassLibrary2
                 {
                     var lpvindb = db.LichPhongVans.FirstOrDefault(x => x.MaPhongVan == lpv.MaPhongVan);
                     if (lpvindb == null) return false;
-                    Sua.UpdateEntity(lpv, lpvindb, "MaPhongVans");
-                   
+                    Sua.UpdateEntity(lpv, lpvindb,  "MaPhongVan", "MaUngVien");
+                   db.SubmitChanges();
                 }
             }
             catch

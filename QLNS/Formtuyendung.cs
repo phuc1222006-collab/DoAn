@@ -18,6 +18,11 @@ namespace QLNS
         // --- Biến cho Hồ Sơ Ứng Viên ---
         BUS_HoSo busUV = new BUS_HoSo();
         bool isLoadedUngVien = false;
+        // --- Biến cho Lịch Phỏng vấn ---
+
+        BUS_LichPhongVan buslpv =new BUS_LichPhongVan();
+        bool isLoadedLichPhongVan = false;
+
 
         // --- Biến cho ComboBox Danh mục phụ trợ ---
         /* GHI CHÚ: Mở khóa các dòng này nếu bạn đã có BUS Phòng Ban & Chức Danh
@@ -76,6 +81,10 @@ namespace QLNS
                 LoadComboBoxTuyenDung(); // Load PB và Chức danh
                 LoadDataTuyenDung();     // Load Grid
                 isLoadedTuyenDung = true;
+                isLoadedUngVien = false;
+                isLoadedLichPhongVan = false;
+
+
             }
             // Tab 1: Hồ Sơ Ứng Viên
             else if (tabTuyenDung.SelectedIndex == 1 && !isLoadedUngVien)
@@ -83,10 +92,20 @@ namespace QLNS
                 LoadComboBoxUngVien();   // Load danh sách Đợt tuyển dụng vào ComboBox
                 LoadDataUngVien();       // Load Grid
                 isLoadedUngVien = true;
+                isLoadedTuyenDung = false;
+                isLoadedLichPhongVan = false;
+
+
             }
-            else if (tabTuyenDung.SelectedIndex == 1 && !isLoadedUngVien)
+            else if (tabTuyenDung.SelectedIndex == 2 && !isLoadedLichPhongVan)
             {
-                
+                LoadDataLichPhongVan();
+                LoadComboBoxLichPhongvan();
+                isLoadedLichPhongVan = true;
+                isLoadedTuyenDung = false;
+                isLoadedUngVien = false;
+
+
             }
         }
         #endregion
@@ -147,6 +166,7 @@ namespace QLNS
             {
                 MessageBox.Show("Đã mở đợt tuyển dụng mới thành công!");
                 LoadDataTuyenDung();
+                ClearControlsTuyenDung();
             }
             else { MessageBox.Show("Lỗi: Mã tuyển dụng bị trùng hoặc CSDL từ chối."); }
         }
@@ -161,6 +181,7 @@ namespace QLNS
             {
                 MessageBox.Show("Cập nhật thông tin thành công!");
                 LoadDataTuyenDung();
+                ClearControlsTuyenDung();
             }
             else { MessageBox.Show("Cập nhật thất bại!"); }
         }
@@ -185,6 +206,18 @@ namespace QLNS
             cboTrangThaiTD.SelectedItem = row.Cells["TrangThai"].Value?.ToString();
             txtMaTD.Enabled = false; // Không cho sửa khóa chính
         }
+        private void ClearControlsTuyenDung()
+        {
+            txtMaTD.Clear();
+            txtSoLuong.Clear();
+            txtMucLuong.Clear();
+            cboPhongBan.SelectedIndex = -1;
+            cboChucDanh.SelectedIndex = -1;
+            cboTrangThaiTD.SelectedIndex = -1;
+            dtpHanChot.Value = DateTime.Now;
+            txtMaTD.Enabled = true;
+            txtMaTD.Focus(); 
+        }
 
         #endregion
 
@@ -197,7 +230,7 @@ namespace QLNS
             {
                 // Khi nộp hồ sơ, phải chọn xem nộp vào đợt tuyển dụng nào
                 cboMaTD.DataSource = busTD.LayDanhSachLenGrid();
-                cboMaTD.DisplayMember = "MaTuyenDung"; // Hoặc bạn có thể tạo 1 trường hiển thị "TenChucDanh (MaTD)" cho đẹp
+                cboMaTD.DisplayMember = "MaTuyenDung"; 
                 cboMaTD.ValueMember = "MaTuyenDung";
             }
             catch (Exception ex)
@@ -237,6 +270,7 @@ namespace QLNS
             {
                 MessageBox.Show("Đã lưu hồ sơ ứng viên thành công!");
                 LoadDataUngVien();
+                ClearControlsUngVien();
             }
             else { MessageBox.Show("Thêm thất bại (Mã bị trùng)!"); }
         }
@@ -244,6 +278,20 @@ namespace QLNS
         // NÚT: SỬA HỒ SƠ
         private void btnSuaHoSo_Click(object sender, EventArgs e)
         {
+            if(string.IsNullOrWhiteSpace(txtMaUV.Text) || string.IsNullOrWhiteSpace(txtHoTen.Text))
+            {
+                MessageBox.Show("Vui lòng nhập Mã Ứng Viên và Họ tên!");
+                return;
+            }
+
+            var et = GetETUngVien();
+            if (busUV.SuaUngVien(et))
+            {
+                MessageBox.Show("Đã sửa hồ sơ ứng viên thành công!");
+                LoadDataUngVien();
+                ClearControlsUngVien();
+            }
+            else { MessageBox.Show("sửa thất bại !"); }
 
         }
 
@@ -262,11 +310,135 @@ namespace QLNS
 
             txtMaUV.Enabled = false; // Bảo mật khóa chính
         }
+        private void ClearControlsUngVien()
+        {
+            txtMaUV.Clear();
+            txtMaUV.Enabled = true; 
+            txtHoTen.Clear();
+            txtSDT.Clear();
+            txtEmail.Clear();
+            txtLinkCV.Clear();
+            cboMaTD.SelectedIndex = -1;
+            cboTrangThaiUV.SelectedIndex = -1;
+        }
 
         #endregion
 
         #region 4. TAB Lịch Phỏng Vấn
+        private void LoadComboBoxLichPhongvan()
+        {
+            try
+            {
 
+                cboungvien.DataSource = busUV.LayDanhSachLenGrid();
+                cboungvien.DisplayMember = "HoTen";
+                cboungvien.ValueMember = "MaUngVien";
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi load ComboBox: " + ex.Message);
+            }
+           
+
+        }
+        private void LoadDataLichPhongVan()
+        {
+            dgvlichphongvan.DataSource = null;
+            dgvlichphongvan.DataSource = buslpv.LayDanhSachLenGrid();
+        }
+        private ET_LichPhongVan GetETLichPhongvan() => new ET_LichPhongVan
+        {
+            MaPhongVan = txtMaPhongVan.Text,
+            MaUngVien = cboungvien.SelectedValue?.ToString(),
+            MaNguoiPhongVan = cboNguoiPhongVan.SelectedValue?.ToString(),
+            NgayGioPhongVan = dtpkngaypv.Value,
+            HinhThuc = txthinhthuc.Text,
+            KetQuaDanhGia = txtketqua.Text,
+        };
+
+        
+
+        private void btntaolich_Click(object sender, EventArgs e)
+        {
+            if(string.IsNullOrWhiteSpace(txtMaPhongVan.Text) || string.IsNullOrWhiteSpace(cboungvien.SelectedValue.ToString()))
+            {
+                MessageBox.Show("Vui lòng nhập đủ mã phỏng vấn mã ứng viên và mã người phỏng vấn");
+                return;
+            }
+
+            var et = GetETLichPhongvan();
+            if (buslpv.ThemLichPhongVan(et))
+            {
+                MessageBox.Show("Đã lưu Lịch Phỏng vấn");
+                LoadDataLichPhongVan();
+            }
+            else { MessageBox.Show("Thêm thất bại (Mã bị trùng)!"); }
+        }
+       
+        private void btnsua_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtMaPhongVan.Text) || string.IsNullOrWhiteSpace(cboungvien.SelectedValue.ToString()))
+            {
+                MessageBox.Show("Vui lòng nhập đủ mã phỏng vấn mã ứng viên và mã người phỏng vấn");
+                return;
+            }
+
+            var et = GetETLichPhongvan();
+            if (buslpv.SuaLichPhongVan(et))
+            {
+                MessageBox.Show("Đã sửa Lịch Phỏng vấn");
+                LoadDataLichPhongVan();
+                txtMaPhongVan.Enabled = true;
+                cboungvien.Enabled = true;
+            }
+            else { MessageBox.Show("sửa thất bại !"); }
+        }
+
+       
+
+        private void dgvlichphongvan_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                // Lấy dòng được chọn
+                DataGridViewRow row = dgvlichphongvan.Rows[e.RowIndex];
+
+                // Đổ dữ liệu vào các control tương ứng
+                // Giả sử tên cột trong DataGridView khớp với tên thuộc tính trong đối tượng
+                txtMaPhongVan.Text = row.Cells["MaPhongVan"].Value?.ToString();
+
+                // Với ComboBox, gán SelectedValue
+                cboungvien.SelectedValue = row.Cells["MaUngVien"].Value;
+                cboNguoiPhongVan.SelectedValue = row.Cells["MaNguoiPhongVan"].Value;
+
+                // Với DateTimePicker
+                if (row.Cells["NgayGioPhongVan"].Value != DBNull.Value)
+                {
+                    dtpkngaypv.Value = Convert.ToDateTime(row.Cells["NgayGioPhongVan"].Value);
+                }
+
+                txthinhthuc.Text = row.Cells["HinhThuc"].Value?.ToString();
+                txtketqua.Text = row.Cells["KetQuaDanhGia"].Value?.ToString();
+
+                // Khóa mã nếu không muốn cho sửa khóa chính khi chọn dòng
+                txtMaPhongVan.Enabled = false;
+                cboungvien.Enabled = false;
+            }
+        }
+        private void ClearForm()
+        {
+            txtMaPhongVan.Clear();
+            txthinhthuc.Clear();
+            txtketqua.Clear();
+            cboungvien.SelectedIndex = -1;
+            cboNguoiPhongVan.SelectedIndex = -1;
+            dtpkngaypv.Value = DateTime.Now;
+            txtMaPhongVan.Enabled = true;
+            cboungvien.Enabled = true;
+        }
         #endregion
+
     }
 }
