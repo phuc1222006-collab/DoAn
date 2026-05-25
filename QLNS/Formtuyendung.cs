@@ -20,7 +20,7 @@ namespace QLNS
         bool isLoadedUngVien = false;
         // --- Biến cho Lịch Phỏng vấn ---
 
-        BUS_LichPhongVan buslpv =new BUS_LichPhongVan();
+        BUS_LichPhongVan buslpv = new BUS_LichPhongVan();
         bool isLoadedLichPhongVan = false;
 
 
@@ -160,6 +160,8 @@ namespace QLNS
         private void btnLuuViTri_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtMaTD.Text)) { MessageBox.Show("Nhập mã tuyển dụng!"); return; }
+            if (!IsNumber(txtSoLuong.Text)) { MessageBox.Show("Số Lượng Phải Là Số!"); return; }
+            if (!IsNumber(txtMucLuong.Text)) { MessageBox.Show("Mức Lương Phải Là Số!"); return; }
 
             var et = GetETTuyenDung();
             if (busTD.ThemTuyenDung(et))
@@ -216,7 +218,7 @@ namespace QLNS
             cboTrangThaiTD.SelectedIndex = -1;
             dtpHanChot.Value = DateTime.Now;
             txtMaTD.Enabled = true;
-            txtMaTD.Focus(); 
+            txtMaTD.Focus();
         }
 
         #endregion
@@ -229,8 +231,8 @@ namespace QLNS
             try
             {
                 // Khi nộp hồ sơ, phải chọn xem nộp vào đợt tuyển dụng nào
-                cboMaTD.DataSource = busTD.LayDanhSachLenGrid();
-                cboMaTD.DisplayMember = "MaTuyenDung"; 
+                cboMaTD.DataSource = busTD.LayDanhSachTuyenDungDangMo();
+                cboMaTD.DisplayMember = "MaTuyenDung";
                 cboMaTD.ValueMember = "MaTuyenDung";
             }
             catch (Exception ex)
@@ -278,7 +280,7 @@ namespace QLNS
         // NÚT: SỬA HỒ SƠ
         private void btnSuaHoSo_Click(object sender, EventArgs e)
         {
-            if(string.IsNullOrWhiteSpace(txtMaUV.Text) || string.IsNullOrWhiteSpace(txtHoTen.Text))
+            if (string.IsNullOrWhiteSpace(txtMaUV.Text) || string.IsNullOrWhiteSpace(txtHoTen.Text))
             {
                 MessageBox.Show("Vui lòng nhập Mã Ứng Viên và Họ tên!");
                 return;
@@ -313,7 +315,7 @@ namespace QLNS
         private void ClearControlsUngVien()
         {
             txtMaUV.Clear();
-            txtMaUV.Enabled = true; 
+            txtMaUV.Enabled = true;
             txtHoTen.Clear();
             txtSDT.Clear();
             txtEmail.Clear();
@@ -330,7 +332,7 @@ namespace QLNS
             try
             {
 
-                cboungvien.DataSource = busUV.LayDanhSachLenGrid();
+                cboungvien.DataSource = busUV.LayDanhSachUngVienCanPhongVan();
                 cboungvien.DisplayMember = "HoTen";
                 cboungvien.ValueMember = "MaUngVien";
 
@@ -340,7 +342,7 @@ namespace QLNS
             {
                 MessageBox.Show("Lỗi load ComboBox: " + ex.Message);
             }
-           
+
 
         }
         private void LoadDataLichPhongVan()
@@ -358,11 +360,11 @@ namespace QLNS
             KetQuaDanhGia = txtketqua.Text,
         };
 
-        
+
 
         private void btntaolich_Click(object sender, EventArgs e)
         {
-            if(string.IsNullOrWhiteSpace(txtMaPhongVan.Text) || string.IsNullOrWhiteSpace(cboungvien.SelectedValue.ToString()))
+            if (string.IsNullOrWhiteSpace(txtMaPhongVan.Text) || string.IsNullOrWhiteSpace(cboungvien.SelectedValue.ToString()))
             {
                 MessageBox.Show("Vui lòng nhập đủ mã phỏng vấn mã ứng viên và mã người phỏng vấn");
                 return;
@@ -376,7 +378,7 @@ namespace QLNS
             }
             else { MessageBox.Show("Thêm thất bại (Mã bị trùng)!"); }
         }
-       
+
         private void btnsua_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtMaPhongVan.Text) || string.IsNullOrWhiteSpace(cboungvien.SelectedValue.ToString()))
@@ -396,7 +398,7 @@ namespace QLNS
             else { MessageBox.Show("sửa thất bại !"); }
         }
 
-       
+
 
         private void dgvlichphongvan_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -439,6 +441,11 @@ namespace QLNS
             cboungvien.Enabled = true;
         }
         #endregion
-
+        #region 5. Các Phương Thức Phụ
+        private bool IsNumber(string text)
+        {
+            return double.TryParse(text, out _);
+        }
+        #endregion
     }
 }

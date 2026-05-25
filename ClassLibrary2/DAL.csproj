@@ -46,6 +46,7 @@
     <Compile Include="DAL_HoSo.cs" />
     <Compile Include="DAL_LichPhongVan.cs" />
     <Compile Include="DAL_NhanVien.cs" />
+    <Compile Include="DAL_NhatKy.cs" />
     <Compile Include="DAL_NhomQuyen.cs" />
     <Compile Include="DAL_TaiKhoang.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

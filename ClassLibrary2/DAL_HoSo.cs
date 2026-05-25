@@ -63,5 +63,13 @@ namespace ClassLibrary2
                 return false;
             }
         }
+        public IQueryable<UngVien> LayDanhSachUngVienCanPhongVan()
+        {
+            QuanLyNhanSuDataContext db = new QuanLyNhanSuDataContext();
+            var query = db.UngViens
+                          .Where(uv => uv.TrangThai == "Mới Nộp" || uv.TrangThai == "Đang Phỏng Vấn");
+
+            return query;
+        }
     }
 }

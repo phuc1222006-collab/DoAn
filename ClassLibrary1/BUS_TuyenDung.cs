@@ -62,5 +62,21 @@ namespace ClassLibrary1
 
             return dalTD.SuaTuyenDung(td);
         }
+        public List<ET_TuyenDung> LayDanhSachTuyenDungDangMo()
+        {
+
+            var data = dalTD.LayDanhSachTuyenDungDangMo();
+
+            return data.Select(td => new ET_TuyenDung
+            {
+                MaTuyenDung = td.MaTuyenDung,
+                MaPhongBan = td.MaPhongBan,
+                MaChucDanh = td.MaChucDanh,
+                SoLuongCanTuyen = td.SoLuongCanTuyen,
+                HanChotNopHoSo = td.HanChotNopHoSo,
+                MucLuongDuKien = td.MucLuongDuKien,
+                TrangThai = td.TrangThai
+            }).ToList();
+        }
     }
 }

@@ -23,6 +23,8 @@ namespace QLNS
         bool isLoadedTaiKhoan = false; // Biến cờ: Đánh dấu xem Tab Tài Khoản đã load dữ liệu chưa
 
         BUS_NhanVien busNV = new BUS_NhanVien();
+        Bus_NhatKy busNK = new Bus_NhatKy();
+        bool isLoadedNhatKy = false; // Biến cờ: Đánh dấu xem Tab Tài Khoản đã load dữ liệu chưa
 
         public Formhethong()
         {
@@ -50,13 +52,26 @@ namespace QLNS
             {
                 LoadComboBoxTaiKhoan();
                 LoadDataTaiKhoan();
-                isLoadedTaiKhoan = true; // Đánh dấu đã load xong, lần sau click lại tab này sẽ không load lại nữa
+                isLoadedTaiKhoan = true; 
+                isLoadedNhomQuyen = false;
+                isLoadedNhatKy = false;
+
             }
             // tabHeThong.SelectedIndex == 1 là Tab Nhóm Quyền
             else if (tabHeThong.SelectedIndex == 1 && !isLoadedNhomQuyen)
             {
                 LoadDataNhomQuyen();
                 isLoadedNhomQuyen = true;
+                isLoadedTaiKhoan = false;
+                isLoadedNhatKy = false;
+
+            }
+            else if (tabHeThong.SelectedIndex == 2 && !isLoadedNhatKy)
+            {
+                LoadNhatKy();
+                isLoadedNhatKy = true;
+                isLoadedNhomQuyen = false;
+                isLoadedTaiKhoan = false;
             }
         }
 
@@ -260,6 +275,48 @@ namespace QLNS
         }
 
         #endregion
+        #region Xử Lý TAB: Nhật Ký
+        private void LoadNhatKy() 
+        {
+            dgvNhatKy.DataSource=null;
+            dgvNhatKy.DataSource= busNK.LayDanhSachLenGrid();
+        }
+        private void btnLamMoiLog_Click(object sender, EventArgs e)
+        {
+            LoadNhatKy();
+            rdbnotime.Checked = true;
+            txtTimKiemLog.Clear();
+        }
+        #endregion
 
+        private void btntim_Click(object sender, EventArgs e)
+        {
+
+            string tenDangNhap = txtTimKiemLog.Text.Trim();
+
+            string mode = "";
+            if (rdbNgay.Checked) mode = "Ngày";
+            else if (rdbThang.Checked) mode = "Tháng";
+            else if (rdbNam.Checked) mode = "Năm";
+
+
+            DateTime? ngayChon = null;
+            if (!string.IsNullOrEmpty(mode))
+            {
+                ngayChon = dtptime.Value;
+            }
+
+            dgvNhatKy.DataSource = busNK.TimKiemNhatKy(tenDangNhap, ngayChon, mode).ToList();
+        }
+
+        private void guna2DateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbnam_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

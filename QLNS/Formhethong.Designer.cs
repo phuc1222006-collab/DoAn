@@ -23,6 +23,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabHeThong = new Guna.UI2.WinForms.Guna2TabControl();
             this.pageTaiKhoan = new System.Windows.Forms.TabPage();
             this.dgvTaiKhoan = new Guna.UI2.WinForms.Guna2DataGridView();
@@ -43,6 +46,17 @@
             this.txtMoTa = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtTenNhom = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtMaNhom = new Guna.UI2.WinForms.Guna2TextBox();
+            this.pageNhatKy = new System.Windows.Forms.TabPage();
+            this.dgvNhatKy = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.pnTopNhatKy = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnLamMoiLog = new Guna.UI2.WinForms.Guna2Button();
+            this.txtTimKiemLog = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btntim = new Guna.UI2.WinForms.Guna2Button();
+            this.dtptime = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.rdbnotime = new Guna.UI2.WinForms.Guna2RadioButton();
+            this.rdbNam = new Guna.UI2.WinForms.Guna2RadioButton();
+            this.rdbThang = new Guna.UI2.WinForms.Guna2RadioButton();
+            this.rdbNgay = new Guna.UI2.WinForms.Guna2RadioButton();
             this.tabHeThong.SuspendLayout();
             this.pageTaiKhoan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTaiKhoan)).BeginInit();
@@ -50,12 +64,16 @@
             this.pageNhomQuyen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhomQuyen)).BeginInit();
             this.pnInputNhomQuyen.SuspendLayout();
+            this.pageNhatKy.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNhatKy)).BeginInit();
+            this.pnTopNhatKy.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabHeThong
             // 
             this.tabHeThong.Controls.Add(this.pageTaiKhoan);
             this.tabHeThong.Controls.Add(this.pageNhomQuyen);
+            this.tabHeThong.Controls.Add(this.pageNhatKy);
             this.tabHeThong.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabHeThong.ItemSize = new System.Drawing.Size(250, 50);
             this.tabHeThong.Location = new System.Drawing.Point(0, 0);
@@ -433,6 +451,219 @@
             this.txtMaNhom.Size = new System.Drawing.Size(197, 44);
             this.txtMaNhom.TabIndex = 4;
             // 
+            // pageNhatKy
+            // 
+            this.pageNhatKy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
+            this.pageNhatKy.Controls.Add(this.dgvNhatKy);
+            this.pageNhatKy.Controls.Add(this.pnTopNhatKy);
+            this.pageNhatKy.Location = new System.Drawing.Point(4, 54);
+            this.pageNhatKy.Margin = new System.Windows.Forms.Padding(4);
+            this.pageNhatKy.Name = "pageNhatKy";
+            this.pageNhatKy.Padding = new System.Windows.Forms.Padding(20);
+            this.pageNhatKy.Size = new System.Drawing.Size(1592, 804);
+            this.pageNhatKy.TabIndex = 2;
+            this.pageNhatKy.Text = "Nhật Ký Hệ Thống";
+            // 
+            // dgvNhatKy
+            // 
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            this.dgvNhatKy.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvNhatKy.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.dgvNhatKy.ColumnHeadersHeight = 29;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvNhatKy.DefaultCellStyle = dataGridViewCellStyle9;
+            this.dgvNhatKy.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvNhatKy.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvNhatKy.Location = new System.Drawing.Point(20, 168);
+            this.dgvNhatKy.Name = "dgvNhatKy";
+            this.dgvNhatKy.ReadOnly = true;
+            this.dgvNhatKy.RowHeadersVisible = false;
+            this.dgvNhatKy.RowHeadersWidth = 51;
+            this.dgvNhatKy.Size = new System.Drawing.Size(1552, 616);
+            this.dgvNhatKy.TabIndex = 0;
+            this.dgvNhatKy.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvNhatKy.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dgvNhatKy.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dgvNhatKy.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dgvNhatKy.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dgvNhatKy.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.dgvNhatKy.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvNhatKy.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.dgvNhatKy.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvNhatKy.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.dgvNhatKy.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dgvNhatKy.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvNhatKy.ThemeStyle.HeaderStyle.Height = 29;
+            this.dgvNhatKy.ThemeStyle.ReadOnly = true;
+            this.dgvNhatKy.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvNhatKy.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvNhatKy.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.dgvNhatKy.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvNhatKy.ThemeStyle.RowsStyle.Height = 22;
+            this.dgvNhatKy.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvNhatKy.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            // 
+            // pnTopNhatKy
+            // 
+            this.pnTopNhatKy.BackColor = System.Drawing.Color.Transparent;
+            this.pnTopNhatKy.BorderRadius = 10;
+            this.pnTopNhatKy.Controls.Add(this.rdbNgay);
+            this.pnTopNhatKy.Controls.Add(this.rdbThang);
+            this.pnTopNhatKy.Controls.Add(this.rdbNam);
+            this.pnTopNhatKy.Controls.Add(this.rdbnotime);
+            this.pnTopNhatKy.Controls.Add(this.dtptime);
+            this.pnTopNhatKy.Controls.Add(this.btntim);
+            this.pnTopNhatKy.Controls.Add(this.btnLamMoiLog);
+            this.pnTopNhatKy.Controls.Add(this.txtTimKiemLog);
+            this.pnTopNhatKy.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnTopNhatKy.FillColor = System.Drawing.Color.White;
+            this.pnTopNhatKy.Location = new System.Drawing.Point(20, 20);
+            this.pnTopNhatKy.Name = "pnTopNhatKy";
+            this.pnTopNhatKy.Size = new System.Drawing.Size(1552, 148);
+            this.pnTopNhatKy.TabIndex = 1;
+            // 
+            // btnLamMoiLog
+            // 
+            this.btnLamMoiLog.BorderRadius = 5;
+            this.btnLamMoiLog.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(202)))), ((int)(((byte)(160)))));
+            this.btnLamMoiLog.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnLamMoiLog.ForeColor = System.Drawing.Color.White;
+            this.btnLamMoiLog.Location = new System.Drawing.Point(470, 18);
+            this.btnLamMoiLog.Name = "btnLamMoiLog";
+            this.btnLamMoiLog.Size = new System.Drawing.Size(150, 44);
+            this.btnLamMoiLog.TabIndex = 1;
+            this.btnLamMoiLog.Text = "LÀM MỚI TẢI LẠI";
+            this.btnLamMoiLog.Click += new System.EventHandler(this.btnLamMoiLog_Click);
+            // 
+            // txtTimKiemLog
+            // 
+            this.txtTimKiemLog.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtTimKiemLog.DefaultText = "";
+            this.txtTimKiemLog.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtTimKiemLog.Location = new System.Drawing.Point(20, 18);
+            this.txtTimKiemLog.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtTimKiemLog.Name = "txtTimKiemLog";
+            this.txtTimKiemLog.PlaceholderText = "Nhập tên tài khoản hoặc thao tác để tìm kiếm...";
+            this.txtTimKiemLog.SelectedText = "";
+            this.txtTimKiemLog.Size = new System.Drawing.Size(444, 44);
+            this.txtTimKiemLog.TabIndex = 0;
+            // 
+            // btntim
+            // 
+            this.btntim.BorderRadius = 5;
+            this.btntim.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(202)))), ((int)(((byte)(160)))));
+            this.btntim.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btntim.ForeColor = System.Drawing.Color.White;
+            this.btntim.Location = new System.Drawing.Point(470, 85);
+            this.btntim.Name = "btntim";
+            this.btntim.Size = new System.Drawing.Size(150, 44);
+            this.btntim.TabIndex = 6;
+            this.btntim.Text = "Tìm";
+            this.btntim.Click += new System.EventHandler(this.btntim_Click);
+            // 
+            // dtptime
+            // 
+            this.dtptime.BorderRadius = 5;
+            this.dtptime.Checked = true;
+            this.dtptime.FillColor = System.Drawing.Color.White;
+            this.dtptime.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dtptime.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtptime.Location = new System.Drawing.Point(233, 85);
+            this.dtptime.Margin = new System.Windows.Forms.Padding(4);
+            this.dtptime.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtptime.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtptime.Name = "dtptime";
+            this.dtptime.Size = new System.Drawing.Size(231, 44);
+            this.dtptime.TabIndex = 7;
+            this.dtptime.Value = new System.DateTime(2026, 5, 23, 15, 51, 8, 237);
+            // 
+            // rdbnotime
+            // 
+            this.rdbnotime.AutoSize = true;
+            this.rdbnotime.Checked = true;
+            this.rdbnotime.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rdbnotime.CheckedState.BorderThickness = 0;
+            this.rdbnotime.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rdbnotime.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.rdbnotime.CheckedState.InnerOffset = -4;
+            this.rdbnotime.Location = new System.Drawing.Point(20, 85);
+            this.rdbnotime.Name = "rdbnotime";
+            this.rdbnotime.Size = new System.Drawing.Size(100, 20);
+            this.rdbnotime.TabIndex = 9;
+            this.rdbnotime.TabStop = true;
+            this.rdbnotime.Text = "Không Chọn";
+            this.rdbnotime.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.rdbnotime.UncheckedState.BorderThickness = 2;
+            this.rdbnotime.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.rdbnotime.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            // 
+            // rdbNam
+            // 
+            this.rdbNam.AutoSize = true;
+            this.rdbNam.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rdbNam.CheckedState.BorderThickness = 0;
+            this.rdbNam.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rdbNam.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.rdbNam.CheckedState.InnerOffset = -4;
+            this.rdbNam.Location = new System.Drawing.Point(126, 109);
+            this.rdbNam.Name = "rdbNam";
+            this.rdbNam.Size = new System.Drawing.Size(54, 20);
+            this.rdbNam.TabIndex = 10;
+            this.rdbNam.Text = "năm";
+            this.rdbNam.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.rdbNam.UncheckedState.BorderThickness = 2;
+            this.rdbNam.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.rdbNam.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            // 
+            // rdbThang
+            // 
+            this.rdbThang.AutoSize = true;
+            this.rdbThang.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rdbThang.CheckedState.BorderThickness = 0;
+            this.rdbThang.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rdbThang.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.rdbThang.CheckedState.InnerOffset = -4;
+            this.rdbThang.Location = new System.Drawing.Point(20, 111);
+            this.rdbThang.Name = "rdbThang";
+            this.rdbThang.Size = new System.Drawing.Size(67, 20);
+            this.rdbThang.TabIndex = 11;
+            this.rdbThang.Text = "Tháng";
+            this.rdbThang.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.rdbThang.UncheckedState.BorderThickness = 2;
+            this.rdbThang.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.rdbThang.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            // 
+            // rdbNgay
+            // 
+            this.rdbNgay.AutoSize = true;
+            this.rdbNgay.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rdbNgay.CheckedState.BorderThickness = 0;
+            this.rdbNgay.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rdbNgay.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.rdbNgay.CheckedState.InnerOffset = -4;
+            this.rdbNgay.Location = new System.Drawing.Point(126, 85);
+            this.rdbNgay.Name = "rdbNgay";
+            this.rdbNgay.Size = new System.Drawing.Size(61, 20);
+            this.rdbNgay.TabIndex = 12;
+            this.rdbNgay.Text = "Ngày";
+            this.rdbNgay.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.rdbNgay.UncheckedState.BorderThickness = 2;
+            this.rdbNgay.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.rdbNgay.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            // 
             // Formhethong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -452,6 +683,10 @@
             this.pageNhomQuyen.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhomQuyen)).EndInit();
             this.pnInputNhomQuyen.ResumeLayout(false);
+            this.pageNhatKy.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNhatKy)).EndInit();
+            this.pnTopNhatKy.ResumeLayout(false);
+            this.pnTopNhatKy.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -459,8 +694,6 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2TabControl tabHeThong;
-
-        // Tab Tài Khoản
         private System.Windows.Forms.TabPage pageTaiKhoan;
         private Guna.UI2.WinForms.Guna2Panel pnInputTaiKhoan;
         private Guna.UI2.WinForms.Guna2ComboBox cboNhanVien;
@@ -471,8 +704,6 @@
         private Guna.UI2.WinForms.Guna2ToggleSwitch swTrangThai;
         private Guna.UI2.WinForms.Guna2Button btnLuuTaiKhoan;
         private Guna.UI2.WinForms.Guna2DataGridView dgvTaiKhoan;
-
-        // Tab Nhóm Quyền
         private System.Windows.Forms.TabPage pageNhomQuyen;
         private Guna.UI2.WinForms.Guna2Panel pnInputNhomQuyen;
         private Guna.UI2.WinForms.Guna2TextBox txtMaNhom;
@@ -482,5 +713,16 @@
         private Guna.UI2.WinForms.Guna2Button btnXoaNhom;
         private Guna.UI2.WinForms.Guna2DataGridView dgvNhomQuyen;
         private Guna.UI2.WinForms.Guna2Button btnclear;
+        private System.Windows.Forms.TabPage pageNhatKy;
+        private Guna.UI2.WinForms.Guna2Panel pnTopNhatKy;
+        private Guna.UI2.WinForms.Guna2TextBox txtTimKiemLog;
+        private Guna.UI2.WinForms.Guna2Button btnLamMoiLog;
+        private Guna.UI2.WinForms.Guna2DataGridView dgvNhatKy;
+        private Guna.UI2.WinForms.Guna2Button btntim;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dtptime;
+        private Guna.UI2.WinForms.Guna2RadioButton rdbNgay;
+        private Guna.UI2.WinForms.Guna2RadioButton rdbThang;
+        private Guna.UI2.WinForms.Guna2RadioButton rdbNam;
+        private Guna.UI2.WinForms.Guna2RadioButton rdbnotime;
     }
 }

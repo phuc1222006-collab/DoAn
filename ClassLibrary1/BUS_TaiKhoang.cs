@@ -68,5 +68,23 @@ namespace ClassLibrary1
             // Nếu thỏa mãn, truyền tín hiệu xuống DAL để truy vấn Database
             return DAL_taikhoang.KiemTraDangNhap(username, password);
         }
+        public ET_TaiKhoan LayThongTinTaiKhoan(string username)
+        {
+            if (string.IsNullOrWhiteSpace(username)) return null;
+
+            var data = DAL_taikhoang.LayThongTinTaiKhoan(username);
+
+            // Nếu trong DB không có tài khoản này trả về null
+            if (data == null) return null;
+
+            return new ET_TaiKhoan
+            {
+                TenDangNhap = data.TenDangNhap,
+                MaNhanVien = data.MaNhanVien,
+                MatKhau = data.MatKhau,
+                MaNhomQuyen = data.MaNhomQuyen,
+                TrangThaiHoatDong = data.TrangThaiHoatDong
+            };
+        }
     }
 }

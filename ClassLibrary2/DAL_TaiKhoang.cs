@@ -63,5 +63,13 @@ namespace ClassLibrary2
                 return account != null; // Có dữ liệu -> True, Null -> False
             }
         }
+        public TaiKhoan LayThongTinTaiKhoan(string username)
+        {
+            using (QuanLyNhanSuDataContext db = new QuanLyNhanSuDataContext())
+            {
+                // Tìm và trả về đúng dòng tài khoản đang đăng nhập
+                return db.TaiKhoans.FirstOrDefault(tk => tk.TenDangNhap == username);
+            }
+        }
     }
 }

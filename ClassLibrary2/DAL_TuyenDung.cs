@@ -62,7 +62,15 @@ namespace ClassLibrary2
                 return false;
             }
         }
+        public IQueryable<ViTriTuyenDung> LayDanhSachTuyenDungDangMo()
+        {
+            QuanLyNhanSuDataContext db = new QuanLyNhanSuDataContext();
 
+            var query = db.ViTriTuyenDungs
+                          .Where(vt => vt.TrangThai == "Đang mở");
+
+            return query; 
+        }
 
     }
 }

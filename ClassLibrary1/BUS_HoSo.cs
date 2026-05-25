@@ -62,5 +62,20 @@ namespace ClassLibrary1
 
             return dalUV.SuaUngVien(uv);
         }
+        public List<ET_UngVien> LayDanhSachUngVienCanPhongVan()
+        {
+            var data = dalUV.LayDanhSachUngVienCanPhongVan();
+
+            return data.Select(uv => new ET_UngVien
+            {
+                MaUngVien = uv.MaUngVien,
+                MaTuyenDung = uv.MaTuyenDung,
+                HoTen = uv.HoTen,
+                SoDienThoai = uv.SoDienThoai,
+                Email = uv.Email,
+                LinkCV = uv.LinkCV,
+                TrangThai = uv.TrangThai
+            }).ToList();
+        }
     }
 }

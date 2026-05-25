@@ -8,7 +8,7 @@ namespace QLNS
     {
         // Khởi tạo đối tượng BUS để xử lý nghiệp vụ tài khoản
         BUS_TaiKhoang busTK = new BUS_TaiKhoang();
-
+        Bus_NhatKy busNK=new Bus_NhatKy();
         public FormDangNhap()
         {
             InitializeComponent();
@@ -38,7 +38,7 @@ namespace QLNS
                 Properties.Settings.Default.Username = user; // Lưu lại user để dùng sau này (ví dụ hiện "Xin chào, Admin")
                 Properties.Settings.Default.Save(); // Bắt buộc gọi Save() để ghi vào ổ cứng
                 // ============================================
-
+                busNK.GhiNhatKy(txtTenDangNhap.Text, "Đăng nhập", "Đăng nhập thành công vào hệ thống");
                 this.Hide();
                 trangchu frm = new trangchu();
                 frm.ShowDialog();

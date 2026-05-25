@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClassLibrary1;
 using Guna.UI2.WinForms;
 
 namespace QLNS
@@ -14,6 +15,8 @@ namespace QLNS
     public partial class trangchu : Form
     {
         private Form currentFormChild;
+        BUS_TaiKhoang busTK = new BUS_TaiKhoang();
+        Bus_NhatKy busNK =new Bus_NhatKy();
         public trangchu()
         {
             InitializeComponent();
@@ -145,12 +148,27 @@ namespace QLNS
         {
             FrmDashboard frm = new FrmDashboard();
             OpenChildForm(frm);
+            // 2. Lấy Username đã lưu trong Settings từ lần đăng nhập trước
+            string savedUsername = Properties.Settings.Default.Username;
+
+            // 3. Thực hiện phân quyền
+            if (!string.IsNullOrEmpty(savedUsername))
+            {
+                var tk = busTK.LayThongTinTaiKhoan(savedUsername);
+                if (tk != null)
+                {
+                    // Dùng Trim() để xóa khoảng trắng thừa nếu có trong Database
+                    XuLyPhanQuyenGiaoDien(tk.MaNhomQuyen.Trim());
+                }
+            }
         }
 
         private void btndangxuat_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn có chắc chắn muốn đăng xuất?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                string currentUser = Properties.Settings.Default.Username;
+                busNK.GhiNhatKy(currentUser, "Đăng xuất", "Người dùng tự đăng xuất khỏi hệ thống");
                 // 1. Xóa trí nhớ đăng nhập
                 Properties.Settings.Default.IsRemembered = false;
                 Properties.Settings.Default.Username = "";
@@ -158,6 +176,38 @@ namespace QLNS
 
                 // 2. Khởi động lại ứng dụng (App sẽ chạy lại file Program.cs, thấy IsRemembered = false nên tự động mở Form Đăng Nhập)
                 Application.Restart();
+            }
+        }
+        // Hàm xử lý ẩn/hiện các nút bấm Menu dựa vào mã quyền
+        private void XuLyPhanQuyenGiaoDien(string maNhomQuyen)
+        {
+            // Mặc định cho hiện tất cả (dành cho quyền ADMIN)
+            btnDanhSachNV.Visible = true;
+            btnTuyenDung.Visible = true;
+            btnchamcong.Visible = true;
+            btnTaiChinh.Visible = true;
+            ribbonButton1.Visible = true; // Nút danh mục
+            btnBaoMat.Visible = true;     // Nút hệ thống
+
+            //if (maNhomQuyen == "NV")
+            //{
+            //    // Quyền Nhân viên: Ẩn quản lý cấp cao
+            //    btnDanhSachNV.Visible = false;
+            //    btnTuyenDung.Visible = false;
+            //    btnTaiChinh.Visible = false;
+            //    btnBaoMat.Visible = false;
+            //}
+            if (maNhomQuyen == "HR")
+            {
+                // Quyền Nhân sự: Ẩn Tài chính và Hệ thống
+                btnTaiChinh.Visible = false;
+                btnBaoMat.Visible = false;
+            }
+            else if (maNhomQuyen == "KT")
+            {
+                // Quyền Kế toán: Ẩn Tuyển dụng và Hệ thống
+                btnTuyenDung.Visible = false;
+                btnBaoMat.Visible = false;
             }
         }
     }
