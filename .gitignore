@@ -1,6 +1,6 @@
 .vs/
-[Oo]bj/
-[Bb]in/
+obj/
+bin/
 *.cache
 *.vsidx
 *.suo
