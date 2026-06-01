@@ -176,6 +176,7 @@ namespace QLNS
             rbtnChamCong.Visible = phanquyen.CoQuyenXem("CN_CHAMCONG");
             rbtnTamUng.Visible = phanquyen.CoQuyenXem("CN_TAMUNG_THUONG");
             rbtnhanhchinh.Visible = phanquyen.CoQuyenXem("CN_HANHCHINH");
+            rbtnInLuong.Visible = phanquyen.CoQuyenXem("CN_InLuong");
             // Nếu bạn có phân quyền Cấp Menu Tổng (ví dụ Hệ Thống), bạn cũng có thể check ở đây:
             rbtndanhmuc.Visible = phanquyen.CoQuyenXem("CN_DANHMUC"); // Hoặc dùng "MENU_HETHONG"
             rbtnTaiKhoang.Visible = phanquyen.CoQuyenXem("CN_TAIKHOAN_PQ");
