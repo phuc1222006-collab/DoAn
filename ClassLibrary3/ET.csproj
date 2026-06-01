@@ -7,8 +7,8 @@
     <ProjectGuid>{A1603222-B15B-4595-8E59-5722610EF21F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ClassLibrary3</RootNamespace>
-    <AssemblyName>ClassLibrary3</AssemblyName>
+    <RootNamespace>ET</RootNamespace>
+    <AssemblyName>ET</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,13 +41,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ET_BangLuong.cs" />
+    <Compile Include="ET_BaoHiem.cs" />
+    <Compile Include="ET_CaLam.cs" />
+    <Compile Include="ET_ChartData.cs" />
+    <Compile Include="ET_ChiNhanh.cs" />
+    <Compile Include="ET_ChiTietBanGiao.cs" />
+    <Compile Include="ET_ChucDanh.cs" />
+    <Compile Include="ET_DanhMucPhuCap.cs" />
+    <Compile Include="ET_DaoTaoNghiepVu.cs" />
+    <Compile Include="ET_Dashboard.cs" />
     <Compile Include="ET_ChamCong.cs" />
+    <Compile Include="ET_DonNghiPhep.cs" />
     <Compile Include="ET_ChiTietNV.cs" />
+    <Compile Include="ET_GiamTruGiaCanh.cs" />
+    <Compile Include="ET_HinhThucChamCong.cs" />
+    <Compile Include="ET_HopDongLaoDong.cs" />
+    <Compile Include="ET_HoSoCongTac.cs" />
+    <Compile Include="ET_KhenThuong.cs" />
     <Compile Include="ET_LichPhongVan.cs" />
     <Compile Include="ET_NhanVien.cs" />
+    <Compile Include="ET_NhanVienView.cs" />
     <Compile Include="ET_NhatKy.cs" />
     <Compile Include="ET_NhomQuyen.cs" />
+    <Compile Include="ET_phanquyen.cs" />
+    <Compile Include="ET_PhongBan.cs" />
+    <Compile Include="ET_PhuCap.cs" />
+    <Compile Include="ET_QuyetDinhNghiViec.cs" />
     <Compile Include="ET_TaiKhoan.cs" />
+    <Compile Include="ET_TaiSanCapPhat.cs" />
+    <Compile Include="ET_TamUng.cs" />
+    <Compile Include="ET_ThongTinTaiKhoan.cs" />
     <Compile Include="ET_TuyenDung.cs" />
     <Compile Include="ET_UngVien.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

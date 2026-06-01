@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using ClassLibrary2; // Chứa Data Model (Entity Framework/LINQ to SQL)
+using DAL; // Chứa Data Model (Entity Framework/LINQ to SQL)
 using ClassLibrary3;
 using ET;
 
-namespace ClassLibrary1
+namespace BUS
 {
     public class BUS_LichPhongVan
     {

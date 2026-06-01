@@ -1,5 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QuanLyNhanSu" Class="QuanLyNhanSuDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-URMOUHG\PHUC;Initial Catalog=QuanLyNhanSu;Integrated Security=True;Trust Server Certificate=True" SettingsObjectName="ClassLibrary2.Properties.Settings" SettingsPropertyName="QuanLyNhanSuConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-URMOUHG\PHUC;Initial Catalog=QuanLyNhanSu;Integrated Security=True;Trust Server Certificate=True" SettingsObjectName="DAL.Properties.Settings" SettingsPropertyName="QuanLyNhanSuConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.CaLamViec" Member="CaLamViecs">
+    <Type Name="CaLamViec">
+      <Column Name="MaCa" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenCa" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="GioBatDau" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="GioKetThuc" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Association Name="CaLamViec_DataChamCong" Member="DataChamCongs" ThisKey="MaCa" OtherKey="MaCa" Type="DataChamCong" />
+    </Type>
+  </Table>
   <Table Name="dbo.BaoHiemXaHoi" Member="BaoHiemXaHois">
     <Type Name="BaoHiemXaHoi">
       <Column Name="SoSoBHXH" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -9,15 +18,6 @@
       <Column Name="MucDong" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
       <Column Name="TrangThai" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Association Name="NhanVien_BaoHiemXaHoi" Member="NhanVien" ThisKey="MaNhanVien" OtherKey="MaNhanVien" Type="NhanVien" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.CaLamViec" Member="CaLamViecs">
-    <Type Name="CaLamViec">
-      <Column Name="MaCa" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TenCa" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="GioBatDau" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
-      <Column Name="GioKetThuc" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
-      <Association Name="CaLamViec_DataChamCong" Member="DataChamCongs" ThisKey="MaCa" OtherKey="MaCa" Type="DataChamCong" />
     </Type>
   </Table>
   <Table Name="dbo.ChiNhanh" Member="ChiNhanhs">
@@ -55,6 +55,7 @@
       <Column Name="MaSoThue" Type="System.String" DbType="VarChar(14)" CanBeNull="true" />
       <Column Name="SoTaiKhoan" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Column Name="TenNganHang" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="HinhAnh" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="NhanVien_ChiTietNhanVien" Member="NhanVien" ThisKey="MaNhanVien" OtherKey="MaNhanVien" Type="NhanVien" IsForeignKey="true" />
     </Type>
   </Table>
@@ -65,6 +66,16 @@
       <Column Name="CapBac" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Association Name="ChucDanh_NhanVien" Member="NhanViens" ThisKey="MaChucDanh" OtherKey="MaChucDanh" Type="NhanVien" />
       <Association Name="ChucDanh_ViTriTuyenDung" Member="ViTriTuyenDungs" ThisKey="MaChucDanh" OtherKey="MaChucDanh" Type="ViTriTuyenDung" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ChucNang" Member="ChucNangs">
+    <Type Name="ChucNang">
+      <Column Name="MaChucNang" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenChucNang" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="TenForm" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="MaChucNangCha" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="MoTa" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Association Name="ChucNang_PhanQuyen" Member="PhanQuyens" ThisKey="MaChucNang" OtherKey="MaChucNang" Type="PhanQuyen" />
     </Type>
   </Table>
   <Table Name="dbo.DanhGiaKPI" Member="DanhGiaKPIs">
@@ -249,7 +260,20 @@
       <Column Name="MaNhomQuyen" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="TenNhomQuyen" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="MoTa" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Association Name="NhomQuyen_PhanQuyen" Member="PhanQuyens" ThisKey="MaNhomQuyen" OtherKey="MaNhomQuyen" Type="PhanQuyen" />
       <Association Name="NhomQuyen_TaiKhoan" Member="TaiKhoans" ThisKey="MaNhomQuyen" OtherKey="MaNhomQuyen" Type="TaiKhoan" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PhanQuyen" Member="PhanQuyens">
+    <Type Name="PhanQuyen">
+      <Column Name="MaNhomQuyen" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaChucNang" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="QuyenXem" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="QuyenThem" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="QuyenSua" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="QuyenXoa" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="ChucNang_PhanQuyen" Member="ChucNang" ThisKey="MaChucNang" OtherKey="MaChucNang" Type="ChucNang" IsForeignKey="true" />
+      <Association Name="NhomQuyen_PhanQuyen" Member="NhomQuyen" ThisKey="MaNhomQuyen" OtherKey="MaNhomQuyen" Type="NhomQuyen" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.PhongBan" Member="PhongBans">

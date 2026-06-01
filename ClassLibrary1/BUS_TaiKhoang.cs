@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using ClassLibrary2; 
-using ClassLibrary3.ET.ET;
+using DAL;
+using ClassLibrary3;
 using ET;           
 
-namespace ClassLibrary1
+namespace BUS
 {
     public class BUS_TaiKhoang
     {
@@ -85,6 +85,11 @@ namespace ClassLibrary1
                 MaNhomQuyen = data.MaNhomQuyen,
                 TrangThaiHoatDong = data.TrangThaiHoatDong
             };
+        }
+        public ET_ThongTinTaiKhoan LayThongTinDangNhap(string tenDangNhap)
+        {
+            if (string.IsNullOrEmpty(tenDangNhap)) return null;
+            return DAL_taikhoang.LayThongTinDangNhap(tenDangNhap);
         }
     }
 }

@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ClassLibrary2;
+using DAL;
 using ClassLibrary3;
-using ClassLibrary3.ET.ET;
 
-namespace ClassLibrary1
+namespace BUS
 {
     public class Bus_NhatKy
     {

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ClassLibrary2;
+using DAL;
 using ClassLibrary3;
 
-namespace ClassLibrary1
+namespace BUS
 {
     public class BUS_HoSo
     {

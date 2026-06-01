@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using ClassLibrary2; 
 
-namespace ClassLibrary2
+namespace DAL
 {
     public class DAL_NhomQuyen
     {

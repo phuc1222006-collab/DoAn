@@ -7,7 +7,7 @@ using ClassLibrary2;
 using DAL;
 using ET;
 
-namespace ClassLibrary1
+namespace BUS
 {
     public class BUS_NhomQuyen
     {

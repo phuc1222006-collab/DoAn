@@ -59,8 +59,10 @@ CREATE TABLE NhanVien (
     MaPhongBan VARCHAR(20),
     MaChucDanh VARCHAR(20),
     TrangThaiLamViec NVARCHAR(50) DEFAULT N'Đang làm việc',
+
     FOREIGN KEY (MaPhongBan) REFERENCES PhongBan(MaPhongBan),
     FOREIGN KEY (MaChucDanh) REFERENCES ChucDanh(MaChucDanh)
+
 );
 
 CREATE TABLE ChiTietNhanVien (
@@ -75,6 +77,7 @@ CREATE TABLE ChiTietNhanVien (
     MaSoThue VARCHAR(14) UNIQUE,
     SoTaiKhoan VARCHAR(20),
     TenNganHang NVARCHAR(100),
+         HinhAnh VARBINARY(MAX),
     FOREIGN KEY (MaNhanVien) REFERENCES NhanVien(MaNhanVien)
 );
 
@@ -326,7 +329,31 @@ CREATE TABLE NhatKyHoatDong (
     IPAddress VARCHAR(50),
     FOREIGN KEY (TenDangNhap) REFERENCES TaiKhoan(TenDangNhap)
 );
+-- =====================================================================
+-- BẢNG CHỨC NĂNG (Lưu danh sách các Form trong phần mềm)
+-- =====================================================================
+CREATE TABLE ChucNang (
+    MaChucNang VARCHAR(20) PRIMARY KEY,
+    TenChucNang NVARCHAR(100) NOT NULL, -- Tên hiển thị (VD: Quản lý nhân viên)
+    TenForm VARCHAR(100) NOT NULL,      -- Tên Form trong code (VD: frmQuanLyNhanVien)
+    MaChucNangCha VARCHAR(20) NULL,
+    MoTa NVARCHAR(255)
+);
 
+-- =====================================================================
+-- BẢNG PHÂN QUYỀN (Gắn quyền cho từng Nhóm với từng Form)
+-- =====================================================================
+CREATE TABLE PhanQuyen (
+    MaNhomQuyen VARCHAR(20),
+    MaChucNang VARCHAR(20),
+    QuyenXem BIT DEFAULT 0,  -- 1 là được phép xem (mở form), 0 là cấm
+    QuyenThem BIT DEFAULT 0, -- 1 là được thấy nút Thêm
+    QuyenSua BIT DEFAULT 0,  -- 1 là được thấy nút Sửa
+    QuyenXoa BIT DEFAULT 0,  -- 1 là được thấy nút Xóa
+    PRIMARY KEY (MaNhomQuyen, MaChucNang),
+    FOREIGN KEY (MaNhomQuyen) REFERENCES NhomQuyen(MaNhomQuyen),
+    FOREIGN KEY (MaChucNang) REFERENCES ChucNang(MaChucNang)
+);
 -- =====================================================================
 -- BƯỚC CUỐI: CẬP NHẬT RÀNG BUỘC THAM CHIẾU VÒNG 
 -- =====================================================================
@@ -334,26 +361,3 @@ ALTER TABLE PhongBan
 ADD CONSTRAINT FK_PhongBan_TruongPhong 
 FOREIGN KEY (MaTruongPhong) REFERENCES NhanVien(MaNhanVien);
 GO
-
--- 1. Thêm Chi nhánh (Cần thiết cho Phòng ban)
-INSERT INTO ChiNhanh (MaChiNhanh, TenChiNhanh) 
-VALUES ('CN_HQ', N'Trụ sở chính');
-
--- 2. Thêm Phòng ban (Cần thiết cho Nhân viên)
-INSERT INTO PhongBan (MaPhongBan, MaChiNhanh, TenPhongBan) 
-VALUES ('PB_IT', 'CN_HQ', N'Phòng Công Nghệ Thông Tin');
-
--- 3. Thêm Chức danh (Cần thiết cho Nhân viên)
-INSERT INTO ChucDanh (MaChucDanh, TenChucDanh, CapBac) 
-VALUES ('CD_ADMIN', N'Quản trị viên', N'Quản lý');
-
--- 4. Thêm Nhân viên Admin (Để liên kết với Tài khoản)
-INSERT INTO NhanVien (MaNhanVien, HoTen, MaPhongBan, MaChucDanh) 
-VALUES ('NV_ADMIN', N'Quản Trị Viên Hệ Thống', 'PB_IT', 'CD_ADMIN');
-
--- 5. Thêm Nhóm quyền Admin
-INSERT INTO NhomQuyen (MaNhomQuyen, TenNhomQuyen, MoTa) 
-VALUES ('NQ_ADMIN', N'Administrator', N'Toàn quyền hệ thống');
--- 6. Tạo Tài khoản Admin
-INSERT INTO TaiKhoan (TenDangNhap, MaNhanVien, MatKhau, MaNhomQuyen, TrangThaiHoatDong) 
-VALUES ('admin', 'NV_ADMIN', '123456', 'NQ_ADMIN', 1);

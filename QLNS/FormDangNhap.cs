@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using ClassLibrary1; // Chứa tầng BUS
+using BUS; // Chứa tầng BUS
 
 namespace QLNS
 {

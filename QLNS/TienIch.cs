@@ -4,7 +4,7 @@ using System.Linq;
 using System;
 using System.Windows.Forms;
 using BUS;
-using ClassLibrary1;
+using BUS;
 namespace QLNS
 {
     public class TienIch

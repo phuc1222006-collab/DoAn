@@ -1,5 +1,6 @@
-namespace ClassLibrary2
+namespace DAL
 {
+
     partial class QuanLyNhanSuDataContext
     {
     }

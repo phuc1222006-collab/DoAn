@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Forms;
-using ClassLibrary1; 
+using BUS;
+using BUS; 
 using ClassLibrary3;
 using ET;            
 
@@ -21,14 +22,12 @@ namespace QLNS
         // --- Biến cho Lịch Phỏng vấn ---
 
         BUS_LichPhongVan buslpv = new BUS_LichPhongVan();
+        BUS_NhanVien BUSnv = new BUS_NhanVien();
         bool isLoadedLichPhongVan = false;
 
 
-        // --- Biến cho ComboBox Danh mục phụ trợ ---
-        /* GHI CHÚ: Mở khóa các dòng này nếu bạn đã có BUS Phòng Ban & Chức Danh
         BUS_PhongBan busPB = new BUS_PhongBan();
         BUS_ChucDanh busCD = new BUS_ChucDanh();
-        */
 
         public Formtuyendung()
         {
@@ -117,15 +116,13 @@ namespace QLNS
         {
             try
             {
-                /* GHI CHÚ: Bỏ comment khi bạn đã có lớp BUS
-                cboPhongBan.DataSource = busPB.LayDanhSachLenGrid();
+                cboPhongBan.DataSource = busPB.LayDanhSachPhongBan(); 
                 cboPhongBan.DisplayMember = "TenPhongBan";
                 cboPhongBan.ValueMember = "MaPhongBan";
 
-                cboChucDanh.DataSource = busCD.LayDanhSachLenGrid();
+                cboChucDanh.DataSource = busCD.layDanhSachChucDanh();
                 cboChucDanh.DisplayMember = "TenChucDanh";
                 cboChucDanh.ValueMember = "MaChucDanh";
-                */
             }
             catch (Exception ex)
             {
@@ -335,7 +332,11 @@ namespace QLNS
                 cboungvien.DataSource = busUV.LayDanhSachUngVienCanPhongVan();
                 cboungvien.DisplayMember = "HoTen";
                 cboungvien.ValueMember = "MaUngVien";
+                cboNguoiPhongVan.DataSource = BUSnv.LayDanhSachLenGrid();
 
+                cboNguoiPhongVan.DisplayMember = "TenNhanVien";
+                cboNguoiPhongVan.ValueMember = "MaNhanVien";
+                cboNguoiPhongVan.SelectedIndex = -1;
 
             }
             catch (Exception ex)

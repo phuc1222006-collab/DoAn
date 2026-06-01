@@ -7,8 +7,8 @@
     <ProjectGuid>{45137A2B-84A8-4E2C-A4A3-D2BEAB46ACDC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ClassLibrary1</RootNamespace>
-    <AssemblyName>ClassLibrary1</AssemblyName>
+    <RootNamespace>BUS</RootNamespace>
+    <AssemblyName>BUS</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,14 +41,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BUS_BaoHiem.cs" />
+    <Compile Include="BUS_CaLam.cs" />
+    <Compile Include="BUS_ChamCong.cs" />
+    <Compile Include="BUS_ChiNhanh.cs" />
+    <Compile Include="BUS_ChiTietBanGiao.cs" />
     <Compile Include="BUS_ChiTietNhanVien.cs" />
+    <Compile Include="BUS_ChucDanh.cs" />
+    <Compile Include="BUS_DanhMucPhuCap.cs" />
+    <Compile Include="BUS_DaoTaoNghiepVu.cs" />
+    <Compile Include="BUS_Dashboard.cs" />
+    <Compile Include="BUS_DonNghiPhep.cs" />
+    <Compile Include="BUS_DuyetDonNghiPhep.cs" />
+    <Compile Include="BUS_GiamTruGiaCanh.cs" />
+    <Compile Include="BUS_HinhThucChamCong.cs" />
+    <Compile Include="BUS_HopDongLaoDong.cs" />
     <Compile Include="BUS_HoSo.cs" />
+    <Compile Include="BUS_HoSoCongTac.cs" />
+    <Compile Include="BUS_KhenThuong.cs" />
     <Compile Include="BUS_LichPhongVan.cs" />
     <Compile Include="BUS_NhanVien.cs" />
     <Compile Include="Bus_NhatKy.cs" />
     <Compile Include="BUS_NhomQuyen.cs" />
+    <Compile Include="BUS_Phanquyen.cs" />
+    <Compile Include="BUS_PhongBan.cs" />
+    <Compile Include="BUS_PhuCap.cs" />
+    <Compile Include="BUS_QuyetDinhNghiViec.cs" />
     <Compile Include="BUS_TaiKhoang.cs" />
+    <Compile Include="BUS_TaiSanCapPhat.cs" />
+    <Compile Include="BUS_TamUng.cs" />
     <Compile Include="BUS_TuyenDung.cs" />
+    <Compile Include="InLuong.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

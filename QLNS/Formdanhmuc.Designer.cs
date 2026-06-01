@@ -110,18 +110,12 @@
             this.tabDanhMuc.Controls.Add(this.pageCaLamViec);
             this.tabDanhMuc.Controls.Add(this.pageHinhThucCC);
             this.tabDanhMuc.Controls.Add(this.pagePhuCap);
-            this.tabDanhMuc.Dock = System.Windows.Forms.DockStyle.Fill;
-
-            // Ép kích thước cố định cho tab và đổi màu nền tab khớp với Ribbon cha (xanh đen)
             this.tabDanhMuc.ItemSize = new System.Drawing.Size(160, 50);
-            this.tabDanhMuc.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
-            this.tabDanhMuc.TabMenuBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(42)))), ((int)(((byte)(57)))));
-
             this.tabDanhMuc.Location = new System.Drawing.Point(0, 0);
             this.tabDanhMuc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabDanhMuc.Name = "tabDanhMuc";
             this.tabDanhMuc.SelectedIndex = 0;
-            this.tabDanhMuc.Size = new System.Drawing.Size(1262, 977);
+            this.tabDanhMuc.Size = new System.Drawing.Size(1303, 977);
             this.tabDanhMuc.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
             this.tabDanhMuc.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(52)))), ((int)(((byte)(70)))));
             this.tabDanhMuc.TabButtonHoverState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
@@ -139,6 +133,7 @@
             this.tabDanhMuc.TabButtonSelectedState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(202)))), ((int)(((byte)(160)))));
             this.tabDanhMuc.TabButtonSize = new System.Drawing.Size(160, 50);
             this.tabDanhMuc.TabIndex = 0;
+            this.tabDanhMuc.TabMenuBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(42)))), ((int)(((byte)(57)))));
             this.tabDanhMuc.TabMenuOrientation = Guna.UI2.WinForms.TabMenuOrientation.HorizontalTop;
             // 
             // pageChiNhanh
@@ -150,7 +145,7 @@
             this.pageChiNhanh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pageChiNhanh.Name = "pageChiNhanh";
             this.pageChiNhanh.Padding = new System.Windows.Forms.Padding(27, 25, 27, 25);
-            this.pageChiNhanh.Size = new System.Drawing.Size(1254, 919);
+            this.pageChiNhanh.Size = new System.Drawing.Size(1295, 919);
             this.pageChiNhanh.TabIndex = 0;
             this.pageChiNhanh.Text = "Cơ sở / Chi nhánh";
             // 
@@ -158,8 +153,8 @@
             // 
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvChiNhanh.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvChiNhanh.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.dgvChiNhanh.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
@@ -184,7 +179,7 @@
             this.dgvChiNhanh.Name = "dgvChiNhanh";
             this.dgvChiNhanh.RowHeadersVisible = false;
             this.dgvChiNhanh.RowHeadersWidth = 51;
-            this.dgvChiNhanh.Size = new System.Drawing.Size(1198, 695);
+            this.dgvChiNhanh.Size = new System.Drawing.Size(1239, 714);
             this.dgvChiNhanh.TabIndex = 0;
             this.dgvChiNhanh.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvChiNhanh.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -207,6 +202,7 @@
             this.dgvChiNhanh.ThemeStyle.RowsStyle.Height = 22;
             this.dgvChiNhanh.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvChiNhanh.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvChiNhanh.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvChiNhanh_CellContentClick);
             // 
             // pnInputChiNhanh
             // 
@@ -222,7 +218,7 @@
             this.pnInputChiNhanh.Location = new System.Drawing.Point(27, 25);
             this.pnInputChiNhanh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnInputChiNhanh.Name = "pnInputChiNhanh";
-            this.pnInputChiNhanh.Size = new System.Drawing.Size(1200, 148);
+            this.pnInputChiNhanh.Size = new System.Drawing.Size(1241, 148);
             this.pnInputChiNhanh.TabIndex = 1;
             // 
             // btnLuuChiNhanh
@@ -232,19 +228,20 @@
             this.btnLuuChiNhanh.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(136)))));
             this.btnLuuChiNhanh.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnLuuChiNhanh.ForeColor = System.Drawing.Color.White;
-            this.btnLuuChiNhanh.Location = new System.Drawing.Point(950, 25);
+            this.btnLuuChiNhanh.Location = new System.Drawing.Point(990, 25);
             this.btnLuuChiNhanh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLuuChiNhanh.Name = "btnLuuChiNhanh";
             this.btnLuuChiNhanh.Size = new System.Drawing.Size(227, 100);
             this.btnLuuChiNhanh.TabIndex = 0;
             this.btnLuuChiNhanh.Text = "LƯU DỮ LIỆU";
+            this.btnLuuChiNhanh.Click += new System.EventHandler(this.btnLuuChiNhanh_Click);
             // 
             // txtHotline
             // 
             this.txtHotline.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtHotline.DefaultText = "";
             this.txtHotline.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtHotline.Location = new System.Drawing.Point(686, 25);
+            this.txtHotline.Location = new System.Drawing.Point(685, 25);
             this.txtHotline.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtHotline.Name = "txtHotline";
             this.txtHotline.PlaceholderText = "Hotline...";
@@ -262,7 +259,7 @@
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.PlaceholderText = "Địa chỉ...";
             this.txtDiaChi.SelectedText = "";
-            this.txtDiaChi.Size = new System.Drawing.Size(886, 44);
+            this.txtDiaChi.Size = new System.Drawing.Size(885, 44);
             this.txtDiaChi.TabIndex = 2;
             // 
             // txtTenChiNhanh
@@ -270,7 +267,7 @@
             this.txtTenChiNhanh.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtTenChiNhanh.DefaultText = "";
             this.txtTenChiNhanh.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtTenChiNhanh.Location = new System.Drawing.Point(242, 26);
+            this.txtTenChiNhanh.Location = new System.Drawing.Point(243, 26);
             this.txtTenChiNhanh.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTenChiNhanh.Name = "txtTenChiNhanh";
             this.txtTenChiNhanh.PlaceholderText = "Tên chi nhánh...";
@@ -288,7 +285,7 @@
             this.txtMaChiNhanh.Name = "txtMaChiNhanh";
             this.txtMaChiNhanh.PlaceholderText = "Mã chi nhánh...";
             this.txtMaChiNhanh.SelectedText = "";
-            this.txtMaChiNhanh.Size = new System.Drawing.Size(194, 44);
+            this.txtMaChiNhanh.Size = new System.Drawing.Size(195, 44);
             this.txtMaChiNhanh.TabIndex = 4;
             // 
             // pagePhongBan
@@ -300,7 +297,7 @@
             this.pagePhongBan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pagePhongBan.Name = "pagePhongBan";
             this.pagePhongBan.Padding = new System.Windows.Forms.Padding(27, 25, 27, 25);
-            this.pagePhongBan.Size = new System.Drawing.Size(1254, 919);
+            this.pagePhongBan.Size = new System.Drawing.Size(1295, 919);
             this.pagePhongBan.TabIndex = 1;
             this.pagePhongBan.Text = "Cơ cấu Phòng Ban";
             // 
@@ -308,8 +305,8 @@
             // 
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
             this.dgvPhongBan.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvPhongBan.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.dgvPhongBan.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
@@ -334,7 +331,7 @@
             this.dgvPhongBan.Name = "dgvPhongBan";
             this.dgvPhongBan.RowHeadersVisible = false;
             this.dgvPhongBan.RowHeadersWidth = 51;
-            this.dgvPhongBan.Size = new System.Drawing.Size(1198, 720);
+            this.dgvPhongBan.Size = new System.Drawing.Size(1239, 782);
             this.dgvPhongBan.TabIndex = 0;
             this.dgvPhongBan.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvPhongBan.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -357,6 +354,7 @@
             this.dgvPhongBan.ThemeStyle.RowsStyle.Height = 22;
             this.dgvPhongBan.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvPhongBan.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvPhongBan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPhongBan_CellClick);
             // 
             // pnInputPhongBan
             // 
@@ -371,7 +369,7 @@
             this.pnInputPhongBan.Location = new System.Drawing.Point(27, 25);
             this.pnInputPhongBan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnInputPhongBan.Name = "pnInputPhongBan";
-            this.pnInputPhongBan.Size = new System.Drawing.Size(1198, 123);
+            this.pnInputPhongBan.Size = new System.Drawing.Size(1241, 123);
             this.pnInputPhongBan.TabIndex = 1;
             // 
             // btnLuuPhongBan
@@ -381,7 +379,7 @@
             this.btnLuuPhongBan.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(136)))));
             this.btnLuuPhongBan.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnLuuPhongBan.ForeColor = System.Drawing.Color.White;
-            this.btnLuuPhongBan.Location = new System.Drawing.Point(947, 39);
+            this.btnLuuPhongBan.Location = new System.Drawing.Point(990, 39);
             this.btnLuuPhongBan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLuuPhongBan.Name = "btnLuuPhongBan";
             this.btnLuuPhongBan.Size = new System.Drawing.Size(227, 44);
@@ -397,7 +395,7 @@
             this.cboChiNhanh_PB.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cboChiNhanh_PB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cboChiNhanh_PB.ItemHeight = 30;
-            this.cboChiNhanh_PB.Location = new System.Drawing.Point(706, 39);
+            this.cboChiNhanh_PB.Location = new System.Drawing.Point(707, 39);
             this.cboChiNhanh_PB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cboChiNhanh_PB.Name = "cboChiNhanh_PB";
             this.cboChiNhanh_PB.Size = new System.Drawing.Size(220, 36);
@@ -438,7 +436,7 @@
             this.pageChucDanh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pageChucDanh.Name = "pageChucDanh";
             this.pageChucDanh.Padding = new System.Windows.Forms.Padding(27, 25, 27, 25);
-            this.pageChucDanh.Size = new System.Drawing.Size(1254, 919);
+            this.pageChucDanh.Size = new System.Drawing.Size(1295, 919);
             this.pageChucDanh.TabIndex = 2;
             this.pageChucDanh.Text = "Chức Danh";
             // 
@@ -446,8 +444,8 @@
             // 
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
             this.dgvChucDanh.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
-            this.dgvChucDanh.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.dgvChucDanh.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
@@ -472,7 +470,7 @@
             this.dgvChucDanh.Name = "dgvChucDanh";
             this.dgvChucDanh.RowHeadersVisible = false;
             this.dgvChucDanh.RowHeadersWidth = 51;
-            this.dgvChucDanh.Size = new System.Drawing.Size(1198, 720);
+            this.dgvChucDanh.Size = new System.Drawing.Size(1239, 782);
             this.dgvChucDanh.TabIndex = 0;
             this.dgvChucDanh.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvChucDanh.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -495,6 +493,7 @@
             this.dgvChucDanh.ThemeStyle.RowsStyle.Height = 22;
             this.dgvChucDanh.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvChucDanh.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvChucDanh.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvChucDanh_CellClick);
             // 
             // pnInputChucDanh
             // 
@@ -509,7 +508,7 @@
             this.pnInputChucDanh.Location = new System.Drawing.Point(27, 25);
             this.pnInputChucDanh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnInputChucDanh.Name = "pnInputChucDanh";
-            this.pnInputChucDanh.Size = new System.Drawing.Size(1198, 123);
+            this.pnInputChucDanh.Size = new System.Drawing.Size(1241, 123);
             this.pnInputChucDanh.TabIndex = 1;
             // 
             // btnLuuChucDanh
@@ -519,7 +518,7 @@
             this.btnLuuChucDanh.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(136)))));
             this.btnLuuChucDanh.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnLuuChucDanh.ForeColor = System.Drawing.Color.White;
-            this.btnLuuChucDanh.Location = new System.Drawing.Point(947, 39);
+            this.btnLuuChucDanh.Location = new System.Drawing.Point(990, 39);
             this.btnLuuChucDanh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLuuChucDanh.Name = "btnLuuChucDanh";
             this.btnLuuChucDanh.Size = new System.Drawing.Size(227, 44);
@@ -574,7 +573,7 @@
             this.pageCaLamViec.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pageCaLamViec.Name = "pageCaLamViec";
             this.pageCaLamViec.Padding = new System.Windows.Forms.Padding(27, 25, 27, 25);
-            this.pageCaLamViec.Size = new System.Drawing.Size(1254, 919);
+            this.pageCaLamViec.Size = new System.Drawing.Size(1295, 919);
             this.pageCaLamViec.TabIndex = 3;
             this.pageCaLamViec.Text = "Ca Làm Việc";
             // 
@@ -582,8 +581,8 @@
             // 
             dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
             this.dgvCaLamViec.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
-            this.dgvCaLamViec.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.dgvCaLamViec.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
@@ -603,12 +602,12 @@
             dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvCaLamViec.DefaultCellStyle = dataGridViewCellStyle12;
             this.dgvCaLamViec.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvCaLamViec.Location = new System.Drawing.Point(27, 213);
+            this.dgvCaLamViec.Location = new System.Drawing.Point(31, 213);
             this.dgvCaLamViec.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvCaLamViec.Name = "dgvCaLamViec";
             this.dgvCaLamViec.RowHeadersVisible = false;
             this.dgvCaLamViec.RowHeadersWidth = 51;
-            this.dgvCaLamViec.Size = new System.Drawing.Size(1198, 679);
+            this.dgvCaLamViec.Size = new System.Drawing.Size(1239, 741);
             this.dgvCaLamViec.TabIndex = 0;
             this.dgvCaLamViec.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvCaLamViec.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -631,6 +630,7 @@
             this.dgvCaLamViec.ThemeStyle.RowsStyle.Height = 22;
             this.dgvCaLamViec.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvCaLamViec.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvCaLamViec.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCaLamViec_CellContentClick);
             // 
             // pnInputCaLamViec
             // 
@@ -648,7 +648,7 @@
             this.pnInputCaLamViec.Location = new System.Drawing.Point(27, 25);
             this.pnInputCaLamViec.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnInputCaLamViec.Name = "pnInputCaLamViec";
-            this.pnInputCaLamViec.Size = new System.Drawing.Size(1198, 141);
+            this.pnInputCaLamViec.Size = new System.Drawing.Size(1241, 142);
             this.pnInputCaLamViec.TabIndex = 1;
             // 
             // lblGioKetThuc
@@ -678,12 +678,13 @@
             this.btnLuuCa.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(136)))));
             this.btnLuuCa.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnLuuCa.ForeColor = System.Drawing.Color.White;
-            this.btnLuuCa.Location = new System.Drawing.Point(947, 39);
+            this.btnLuuCa.Location = new System.Drawing.Point(990, 39);
             this.btnLuuCa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLuuCa.Name = "btnLuuCa";
             this.btnLuuCa.Size = new System.Drawing.Size(227, 82);
             this.btnLuuCa.TabIndex = 2;
             this.btnLuuCa.Text = "LƯU CA LÀM";
+            this.btnLuuCa.Click += new System.EventHandler(this.btnLuuCa_Click);
             // 
             // dtpGioKetThuc
             // 
@@ -692,7 +693,7 @@
             this.dtpGioKetThuc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpGioKetThuc.Name = "dtpGioKetThuc";
             this.dtpGioKetThuc.ShowUpDown = true;
-            this.dtpGioKetThuc.Size = new System.Drawing.Size(202, 22);
+            this.dtpGioKetThuc.Size = new System.Drawing.Size(201, 22);
             this.dtpGioKetThuc.TabIndex = 3;
             // 
             // dtpGioBatDau
@@ -740,7 +741,7 @@
             this.pageHinhThucCC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pageHinhThucCC.Name = "pageHinhThucCC";
             this.pageHinhThucCC.Padding = new System.Windows.Forms.Padding(27, 25, 27, 25);
-            this.pageHinhThucCC.Size = new System.Drawing.Size(1254, 919);
+            this.pageHinhThucCC.Size = new System.Drawing.Size(1295, 919);
             this.pageHinhThucCC.TabIndex = 4;
             this.pageHinhThucCC.Text = "Loại Chấm Công";
             // 
@@ -748,8 +749,8 @@
             // 
             dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
             this.dgvHinhThucCC.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
-            this.dgvHinhThucCC.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.dgvHinhThucCC.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
@@ -769,12 +770,12 @@
             dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvHinhThucCC.DefaultCellStyle = dataGridViewCellStyle15;
             this.dgvHinhThucCC.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvHinhThucCC.Location = new System.Drawing.Point(27, 172);
+            this.dgvHinhThucCC.Location = new System.Drawing.Point(27, 156);
             this.dgvHinhThucCC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvHinhThucCC.Name = "dgvHinhThucCC";
             this.dgvHinhThucCC.RowHeadersVisible = false;
             this.dgvHinhThucCC.RowHeadersWidth = 51;
-            this.dgvHinhThucCC.Size = new System.Drawing.Size(1198, 720);
+            this.dgvHinhThucCC.Size = new System.Drawing.Size(1239, 798);
             this.dgvHinhThucCC.TabIndex = 0;
             this.dgvHinhThucCC.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvHinhThucCC.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -797,6 +798,7 @@
             this.dgvHinhThucCC.ThemeStyle.RowsStyle.Height = 22;
             this.dgvHinhThucCC.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvHinhThucCC.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvHinhThucCC.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHinhThucCC_CellClick);
             // 
             // pnInputHTCC
             // 
@@ -810,7 +812,7 @@
             this.pnInputHTCC.Location = new System.Drawing.Point(27, 25);
             this.pnInputHTCC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnInputHTCC.Name = "pnInputHTCC";
-            this.pnInputHTCC.Size = new System.Drawing.Size(1198, 123);
+            this.pnInputHTCC.Size = new System.Drawing.Size(1241, 123);
             this.pnInputHTCC.TabIndex = 1;
             // 
             // btnLuuHTCC
@@ -820,12 +822,13 @@
             this.btnLuuHTCC.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(136)))));
             this.btnLuuHTCC.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnLuuHTCC.ForeColor = System.Drawing.Color.White;
-            this.btnLuuHTCC.Location = new System.Drawing.Point(947, 39);
+            this.btnLuuHTCC.Location = new System.Drawing.Point(990, 39);
             this.btnLuuHTCC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLuuHTCC.Name = "btnLuuHTCC";
             this.btnLuuHTCC.Size = new System.Drawing.Size(227, 44);
             this.btnLuuHTCC.TabIndex = 0;
             this.btnLuuHTCC.Text = "LƯU HÌNH THỨC";
+            this.btnLuuHTCC.Click += new System.EventHandler(this.btnLuuHTCC_Click);
             // 
             // txtTenHTCC
             // 
@@ -862,7 +865,7 @@
             this.pagePhuCap.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pagePhuCap.Name = "pagePhuCap";
             this.pagePhuCap.Padding = new System.Windows.Forms.Padding(27, 25, 27, 25);
-            this.pagePhuCap.Size = new System.Drawing.Size(1254, 919);
+            this.pagePhuCap.Size = new System.Drawing.Size(1295, 919);
             this.pagePhuCap.TabIndex = 5;
             this.pagePhuCap.Text = "Danh Mục Phụ Cấp";
             // 
@@ -870,8 +873,8 @@
             // 
             dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
             this.dgvPhuCap.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
-            this.dgvPhuCap.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.dgvPhuCap.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
@@ -896,7 +899,7 @@
             this.dgvPhuCap.Name = "dgvPhuCap";
             this.dgvPhuCap.RowHeadersVisible = false;
             this.dgvPhuCap.RowHeadersWidth = 51;
-            this.dgvPhuCap.Size = new System.Drawing.Size(1198, 691);
+            this.dgvPhuCap.Size = new System.Drawing.Size(1197, 690);
             this.dgvPhuCap.TabIndex = 0;
             this.dgvPhuCap.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvPhuCap.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -919,6 +922,7 @@
             this.dgvPhuCap.ThemeStyle.RowsStyle.Height = 22;
             this.dgvPhuCap.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvPhuCap.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvPhuCap.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPhuCap_CellClick);
             // 
             // pnInputPhuCap
             // 
@@ -933,7 +937,7 @@
             this.pnInputPhuCap.Location = new System.Drawing.Point(27, 25);
             this.pnInputPhuCap.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnInputPhuCap.Name = "pnInputPhuCap";
-            this.pnInputPhuCap.Size = new System.Drawing.Size(1198, 151);
+            this.pnInputPhuCap.Size = new System.Drawing.Size(1241, 151);
             this.pnInputPhuCap.TabIndex = 1;
             // 
             // btnLuuPhuCap
@@ -943,12 +947,13 @@
             this.btnLuuPhuCap.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(136)))));
             this.btnLuuPhuCap.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnLuuPhuCap.ForeColor = System.Drawing.Color.White;
-            this.btnLuuPhuCap.Location = new System.Drawing.Point(920, 39);
+            this.btnLuuPhuCap.Location = new System.Drawing.Point(963, 39);
             this.btnLuuPhuCap.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLuuPhuCap.Name = "btnLuuPhuCap";
-            this.btnLuuPhuCap.Size = new System.Drawing.Size(250, 98);
+            this.btnLuuPhuCap.Size = new System.Drawing.Size(251, 98);
             this.btnLuuPhuCap.TabIndex = 0;
             this.btnLuuPhuCap.Text = "LƯU PHỤ CẤP";
+            this.btnLuuPhuCap.Click += new System.EventHandler(this.btnLuuPhuCap_Click);
             // 
             // txtMucTien
             // 
@@ -968,7 +973,7 @@
             this.txtTenPhuCap.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtTenPhuCap.DefaultText = "";
             this.txtTenPhuCap.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtTenPhuCap.Location = new System.Drawing.Point(40, 93);
+            this.txtTenPhuCap.Location = new System.Drawing.Point(40, 94);
             this.txtTenPhuCap.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTenPhuCap.Name = "txtTenPhuCap";
             this.txtTenPhuCap.PlaceholderText = "Tên phụ cấp (vd: Xăng xe)...";
@@ -993,12 +998,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1262, 977);
+            this.ClientSize = new System.Drawing.Size(1261, 977);
             this.Controls.Add(this.tabDanhMuc);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Formdanhmuc";
             this.Text = "Thiết Lập Danh Mục";
+            this.Load += new System.EventHandler(this.Formdanhmuc_Load);
             this.tabDanhMuc.ResumeLayout(false);
             this.pageChiNhanh.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvChiNhanh)).EndInit();
@@ -1022,7 +1028,6 @@
             this.ResumeLayout(false);
 
         }
-
         #endregion
 
         // Khai báo chung

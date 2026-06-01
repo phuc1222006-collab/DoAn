@@ -2,8 +2,8 @@
 using System.Linq;
 using System.Windows.Forms;
 using BUS;
-using ClassLibrary1;
-using ClassLibrary3.ET.ET;
+using BUS;
+using ClassLibrary3;
 using ET;
 
 namespace QLNS
@@ -167,6 +167,20 @@ namespace QLNS
             txtMaNhom.Enabled = true;
             isEditingNhom = false;
         }
+        private void dgvNhomQuyen_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Đảm bảo không click vào tiêu đề cột
+            if (e.RowIndex >= 0)
+            {
+                // Lấy mã và tên nhóm quyền từ dòng vừa click đúp
+                string maNhom = dgvNhomQuyen.Rows[e.RowIndex].Cells["MaNhomQuyen"].Value?.ToString();
+                string tenNhom = dgvNhomQuyen.Rows[e.RowIndex].Cells["TenNhomQuyen"].Value?.ToString();
+
+                // Khởi tạo Form Cài đặt quyền và truyền 2 biến này sang
+                Caidatquyen frm = new Caidatquyen(maNhom, tenNhom);
+                frm.ShowDialog(); // Mở lên dưới dạng hộp thoại
+            }
+        }
         #endregion
 
 
@@ -275,7 +289,7 @@ namespace QLNS
         }
 
         #endregion
-        #region Xử Lý TAB: Nhật Ký
+        #region 4. Xử Lý TAB: Nhật Ký
         private void LoadNhatKy() 
         {
             dgvNhatKy.DataSource=null;
@@ -287,7 +301,6 @@ namespace QLNS
             rdbnotime.Checked = true;
             txtTimKiemLog.Clear();
         }
-        #endregion
 
         private void btntim_Click(object sender, EventArgs e)
         {
@@ -318,5 +331,8 @@ namespace QLNS
         {
 
         }
+        #endregion
+
+        
     }
 }

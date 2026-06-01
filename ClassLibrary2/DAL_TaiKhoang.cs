@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ClassLibrary3;
 
-namespace ClassLibrary2
+namespace DAL
 {
     public class DAL_TaiKhoan
     {
@@ -70,6 +71,29 @@ namespace ClassLibrary2
                 // Tìm và trả về đúng dòng tài khoản đang đăng nhập
                 return db.TaiKhoans.FirstOrDefault(tk => tk.TenDangNhap == username);
             }
+        }
+
+        public ET_ThongTinTaiKhoan LayThongTinDangNhap(string tenDangNhap)
+        {
+            QuanLyNhanSuDataContext db = new QuanLyNhanSuDataContext();
+
+            // Chỉ cần JOIN 2 bảng TaiKhoan và NhanVien là đủ
+            var query = from tk in db.TaiKhoans
+                        join nv in db.NhanViens on tk.MaNhanVien equals nv.MaNhanVien
+                        where tk.TenDangNhap == tenDangNhap
+                        select new ET_ThongTinTaiKhoan
+                        {
+                            TenDangNhap = tk.TenDangNhap,
+                            MaNhanVien = tk.MaNhanVien,
+                            HoTen = nv.HoTen,
+                            MaPhongBan = nv.MaPhongBan,
+                            MaChucDanh = nv.MaChucDanh,
+                            
+                            // Lấy mã quyền để làm chuẩn phân quyền cho toàn hệ thống
+                            MaNhomQuyen = tk.MaNhomQuyen,
+                        };
+
+            return query.FirstOrDefault();
         }
     }
 }

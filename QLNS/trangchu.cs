@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ClassLibrary1;
+using BUS;
 using Guna.UI2.WinForms;
 
 namespace QLNS
@@ -16,7 +16,8 @@ namespace QLNS
     {
         private Form currentFormChild;
         BUS_TaiKhoang busTK = new BUS_TaiKhoang();
-        Bus_NhatKy busNK =new Bus_NhatKy();
+        Bus_NhatKy busNK = new Bus_NhatKy();
+
         public trangchu()
         {
             InitializeComponent();
@@ -24,61 +25,43 @@ namespace QLNS
 
         private void btnDanhSachNV_Click(object sender, EventArgs e)
         {
-
             FormNhanVien frm = new FormNhanVien();
             OpenChildForm(frm);
-
-
         }
 
         private void btnTuyenDung_Click(object sender, EventArgs e)
         {
-
-
             Formtuyendung frm = new Formtuyendung();
             OpenChildForm(frm);
-
-
         }
 
         private void btnchamcong_Click(object sender, EventArgs e)
         {
-
-
             Formchamcong frm = new Formchamcong();
             OpenChildForm(frm);
-
-
         }
 
         private void btnTaiChinh_Click(object sender, EventArgs e)
         {
-
-
             Formtaichinh frm = new Formtaichinh();
             OpenChildForm(frm);
-
-
         }
 
         private void ribbonButton1_Click(object sender, EventArgs e)
         {
-
-
             Formdanhmuc frm = new Formdanhmuc();
             OpenChildForm(frm);
-
-
         }
 
         private void btnBaoMat_Click(object sender, EventArgs e)
         {
-
             Formhethong frm = new Formhethong();
             OpenChildForm(frm);
         }
+
         private void OpenChildForm(Form childForm)
-        {// Kiểm tra: Nếu đã có form đang mở VÀ form đó cùng loại với form sắp mở
+        {
+            // Kiểm tra: Nếu đã có form đang mở VÀ form đó cùng loại với form sắp mở
             if (currentFormChild != null && currentFormChild.GetType() == childForm.GetType())
             {
                 return;
@@ -113,7 +96,6 @@ namespace QLNS
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-
         }
 
         private void rbtntrangchu_Click(object sender, EventArgs e)
@@ -124,23 +106,18 @@ namespace QLNS
 
         private void rbtnthoat_Click(object sender, EventArgs e)
         {
-
-            // 1. Khởi tạo hộp thoại của Guna
             Guna.UI2.WinForms.Guna2MessageDialog msgDialog = new Guna.UI2.WinForms.Guna2MessageDialog();
-
-            // 2. Cấu hình nội dung và giao diện
             msgDialog.Caption = "Xác nhận";
             msgDialog.Text = "Bạn có chắc chắn muốn thoát phần mềm không?";
             msgDialog.Buttons = Guna.UI2.WinForms.MessageDialogButtons.YesNo;
             msgDialog.Icon = Guna.UI2.WinForms.MessageDialogIcon.Question;
-            msgDialog.Style = Guna.UI2.WinForms.MessageDialogStyle.Light; // Nền trắng hiện đại
+            msgDialog.Style = Guna.UI2.WinForms.MessageDialogStyle.Light;
 
-            // 3. Hiển thị và xử lý kết quả
             DialogResult rs = msgDialog.Show();
 
             if (rs == DialogResult.Yes)
             {
-                Application.Exit(); // Tắt toàn bộ ứng dụng
+                Application.Exit();
             }
         }
 
@@ -148,6 +125,7 @@ namespace QLNS
         {
             FrmDashboard frm = new FrmDashboard();
             OpenChildForm(frm);
+
             // 2. Lấy Username đã lưu trong Settings từ lần đăng nhập trước
             string savedUsername = Properties.Settings.Default.Username;
 
@@ -157,8 +135,13 @@ namespace QLNS
                 var tk = busTK.LayThongTinTaiKhoan(savedUsername);
                 if (tk != null)
                 {
-                    // Dùng Trim() để xóa khoảng trắng thừa nếu có trong Database
-                    XuLyPhanQuyenGiaoDien(tk.MaNhomQuyen.Trim());
+                    string maNhom = tk.MaNhomQuyen.Trim();
+
+                    // BƯỚC QUAN TRỌNG: Nạp toàn bộ quyền của nhóm này vào RAM
+                    phanquyen.TaiQuyen(maNhom);
+
+                    // Xử lý giao diện
+                    XuLyPhanQuyenGiaoDien();
                 }
             }
         }
@@ -169,46 +152,50 @@ namespace QLNS
             {
                 string currentUser = Properties.Settings.Default.Username;
                 busNK.GhiNhatKy(currentUser, "Đăng xuất", "Người dùng tự đăng xuất khỏi hệ thống");
+
                 // 1. Xóa trí nhớ đăng nhập
                 Properties.Settings.Default.IsRemembered = false;
                 Properties.Settings.Default.Username = "";
                 Properties.Settings.Default.Save();
 
-                // 2. Khởi động lại ứng dụng (App sẽ chạy lại file Program.cs, thấy IsRemembered = false nên tự động mở Form Đăng Nhập)
+                // 2. Khởi động lại ứng dụng
                 Application.Restart();
             }
         }
-        // Hàm xử lý ẩn/hiện các nút bấm Menu dựa vào mã quyền
-        private void XuLyPhanQuyenGiaoDien(string maNhomQuyen)
-        {
-            // Mặc định cho hiện tất cả (dành cho quyền ADMIN)
-            btnDanhSachNV.Visible = true;
-            btnTuyenDung.Visible = true;
-            btnchamcong.Visible = true;
-            btnTaiChinh.Visible = true;
-            ribbonButton1.Visible = true; // Nút danh mục
-            btnBaoMat.Visible = true;     // Nút hệ thống
 
-            //if (maNhomQuyen == "NV")
-            //{
-            //    // Quyền Nhân viên: Ẩn quản lý cấp cao
-            //    btnDanhSachNV.Visible = false;
-            //    btnTuyenDung.Visible = false;
-            //    btnTaiChinh.Visible = false;
-            //    btnBaoMat.Visible = false;
-            //}
-            if (maNhomQuyen == "HR")
-            {
-                // Quyền Nhân sự: Ẩn Tài chính và Hệ thống
-                btnTaiChinh.Visible = false;
-                btnBaoMat.Visible = false;
-            }
-            else if (maNhomQuyen == "KT")
-            {
-                // Quyền Kế toán: Ẩn Tuyển dụng và Hệ thống
-                btnTuyenDung.Visible = false;
-                btnBaoMat.Visible = false;
-            }
+        // ========================================================
+        // HÀM XỬ LÝ ẨN/HIỆN NÚT (DỰA VÀO CSDL THAY VÌ CODE CỨNG)
+        // ========================================================
+        private void XuLyPhanQuyenGiaoDien()
+        {
+            // Truyền các Mã Chức Năng tương ứng mà chúng ta đã INSERT vào SQL
+            // Nút nào được đánh dấu Tích "Cho Phép Xem" trong CSDL sẽ trả về True, nếu không sẽ bị mờ/ẩn.
+
+            rbtnHoSoNhanVien.Visible = phanquyen.CoQuyenXem("CN_HOSONV");
+            rbtnKehoachUngTuyen.Visible = phanquyen.CoQuyenXem("CN_TUYENDUNG");
+            rbtnChamCong.Visible = phanquyen.CoQuyenXem("CN_CHAMCONG");
+            rbtnTamUng.Visible = phanquyen.CoQuyenXem("CN_TAMUNG_THUONG");
+            rbtnhanhchinh.Visible = phanquyen.CoQuyenXem("CN_HANHCHINH");
+            // Nếu bạn có phân quyền Cấp Menu Tổng (ví dụ Hệ Thống), bạn cũng có thể check ở đây:
+            rbtndanhmuc.Visible = phanquyen.CoQuyenXem("CN_DANHMUC"); // Hoặc dùng "MENU_HETHONG"
+            rbtnTaiKhoang.Visible = phanquyen.CoQuyenXem("CN_TAIKHOAN_PQ");
+
+
+            tabNhanSu.Visible = phanquyen.CoQuyenXem("MENU_NHANSU");
+            tabtaichinh.Visible = phanquyen.CoQuyenXem("MENU_CHAMCONG");
+            tabCaiDat.Visible = phanquyen.CoQuyenXem("MENU_HETHONG");
+        }
+
+        private void btnhanhchinh_Click(object sender, EventArgs e)
+        {
+            FormHanhChinh frm = new FormHanhChinh();
+            OpenChildForm(frm);
+        }
+
+        private void btnInLuong_Click(object sender, EventArgs e)
+        {
+            FormInLuong frm = new FormInLuong();
+            OpenChildForm(frm);
         }
     }
 }

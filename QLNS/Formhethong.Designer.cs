@@ -49,14 +49,14 @@
             this.pageNhatKy = new System.Windows.Forms.TabPage();
             this.dgvNhatKy = new Guna.UI2.WinForms.Guna2DataGridView();
             this.pnTopNhatKy = new Guna.UI2.WinForms.Guna2Panel();
+            this.rdbNgay = new Guna.UI2.WinForms.Guna2RadioButton();
+            this.rdbThang = new Guna.UI2.WinForms.Guna2RadioButton();
+            this.rdbNam = new Guna.UI2.WinForms.Guna2RadioButton();
+            this.rdbnotime = new Guna.UI2.WinForms.Guna2RadioButton();
+            this.dtptime = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.btntim = new Guna.UI2.WinForms.Guna2Button();
             this.btnLamMoiLog = new Guna.UI2.WinForms.Guna2Button();
             this.txtTimKiemLog = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btntim = new Guna.UI2.WinForms.Guna2Button();
-            this.dtptime = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.rdbnotime = new Guna.UI2.WinForms.Guna2RadioButton();
-            this.rdbNam = new Guna.UI2.WinForms.Guna2RadioButton();
-            this.rdbThang = new Guna.UI2.WinForms.Guna2RadioButton();
-            this.rdbNgay = new Guna.UI2.WinForms.Guna2RadioButton();
             this.tabHeThong.SuspendLayout();
             this.pageTaiKhoan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTaiKhoan)).BeginInit();
@@ -351,6 +351,7 @@
             this.dgvNhomQuyen.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvNhomQuyen.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dgvNhomQuyen.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhomQuyen_CellClick);
+            this.dgvNhomQuyen.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhomQuyen_CellContentDoubleClick);
             // 
             // pnInputNhomQuyen
             // 
@@ -535,6 +536,109 @@
             this.pnTopNhatKy.Size = new System.Drawing.Size(1552, 148);
             this.pnTopNhatKy.TabIndex = 1;
             // 
+            // rdbNgay
+            // 
+            this.rdbNgay.AutoSize = true;
+            this.rdbNgay.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rdbNgay.CheckedState.BorderThickness = 0;
+            this.rdbNgay.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rdbNgay.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.rdbNgay.CheckedState.InnerOffset = -4;
+            this.rdbNgay.Location = new System.Drawing.Point(126, 85);
+            this.rdbNgay.Name = "rdbNgay";
+            this.rdbNgay.Size = new System.Drawing.Size(61, 20);
+            this.rdbNgay.TabIndex = 12;
+            this.rdbNgay.Text = "Ngày";
+            this.rdbNgay.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.rdbNgay.UncheckedState.BorderThickness = 2;
+            this.rdbNgay.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.rdbNgay.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            // 
+            // rdbThang
+            // 
+            this.rdbThang.AutoSize = true;
+            this.rdbThang.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rdbThang.CheckedState.BorderThickness = 0;
+            this.rdbThang.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rdbThang.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.rdbThang.CheckedState.InnerOffset = -4;
+            this.rdbThang.Location = new System.Drawing.Point(20, 111);
+            this.rdbThang.Name = "rdbThang";
+            this.rdbThang.Size = new System.Drawing.Size(67, 20);
+            this.rdbThang.TabIndex = 11;
+            this.rdbThang.Text = "Tháng";
+            this.rdbThang.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.rdbThang.UncheckedState.BorderThickness = 2;
+            this.rdbThang.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.rdbThang.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            // 
+            // rdbNam
+            // 
+            this.rdbNam.AutoSize = true;
+            this.rdbNam.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rdbNam.CheckedState.BorderThickness = 0;
+            this.rdbNam.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rdbNam.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.rdbNam.CheckedState.InnerOffset = -4;
+            this.rdbNam.Location = new System.Drawing.Point(126, 109);
+            this.rdbNam.Name = "rdbNam";
+            this.rdbNam.Size = new System.Drawing.Size(54, 20);
+            this.rdbNam.TabIndex = 10;
+            this.rdbNam.Text = "năm";
+            this.rdbNam.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.rdbNam.UncheckedState.BorderThickness = 2;
+            this.rdbNam.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.rdbNam.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            // 
+            // rdbnotime
+            // 
+            this.rdbnotime.AutoSize = true;
+            this.rdbnotime.Checked = true;
+            this.rdbnotime.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rdbnotime.CheckedState.BorderThickness = 0;
+            this.rdbnotime.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rdbnotime.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.rdbnotime.CheckedState.InnerOffset = -4;
+            this.rdbnotime.Location = new System.Drawing.Point(20, 85);
+            this.rdbnotime.Name = "rdbnotime";
+            this.rdbnotime.Size = new System.Drawing.Size(100, 20);
+            this.rdbnotime.TabIndex = 9;
+            this.rdbnotime.TabStop = true;
+            this.rdbnotime.Text = "Không Chọn";
+            this.rdbnotime.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.rdbnotime.UncheckedState.BorderThickness = 2;
+            this.rdbnotime.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.rdbnotime.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            // 
+            // dtptime
+            // 
+            this.dtptime.BorderRadius = 5;
+            this.dtptime.Checked = true;
+            this.dtptime.FillColor = System.Drawing.Color.White;
+            this.dtptime.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dtptime.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtptime.Location = new System.Drawing.Point(233, 85);
+            this.dtptime.Margin = new System.Windows.Forms.Padding(4);
+            this.dtptime.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtptime.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtptime.Name = "dtptime";
+            this.dtptime.Size = new System.Drawing.Size(231, 44);
+            this.dtptime.TabIndex = 7;
+            this.dtptime.Value = new System.DateTime(2026, 5, 23, 15, 51, 8, 237);
+            // 
+            // btntim
+            // 
+            this.btntim.BorderRadius = 5;
+            this.btntim.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(202)))), ((int)(((byte)(160)))));
+            this.btntim.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btntim.ForeColor = System.Drawing.Color.White;
+            this.btntim.Location = new System.Drawing.Point(470, 85);
+            this.btntim.Name = "btntim";
+            this.btntim.Size = new System.Drawing.Size(150, 44);
+            this.btntim.TabIndex = 6;
+            this.btntim.Text = "Tìm";
+            this.btntim.Click += new System.EventHandler(this.btntim_Click);
+            // 
             // btnLamMoiLog
             // 
             this.btnLamMoiLog.BorderRadius = 5;
@@ -560,109 +664,6 @@
             this.txtTimKiemLog.SelectedText = "";
             this.txtTimKiemLog.Size = new System.Drawing.Size(444, 44);
             this.txtTimKiemLog.TabIndex = 0;
-            // 
-            // btntim
-            // 
-            this.btntim.BorderRadius = 5;
-            this.btntim.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(202)))), ((int)(((byte)(160)))));
-            this.btntim.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.btntim.ForeColor = System.Drawing.Color.White;
-            this.btntim.Location = new System.Drawing.Point(470, 85);
-            this.btntim.Name = "btntim";
-            this.btntim.Size = new System.Drawing.Size(150, 44);
-            this.btntim.TabIndex = 6;
-            this.btntim.Text = "Tìm";
-            this.btntim.Click += new System.EventHandler(this.btntim_Click);
-            // 
-            // dtptime
-            // 
-            this.dtptime.BorderRadius = 5;
-            this.dtptime.Checked = true;
-            this.dtptime.FillColor = System.Drawing.Color.White;
-            this.dtptime.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.dtptime.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtptime.Location = new System.Drawing.Point(233, 85);
-            this.dtptime.Margin = new System.Windows.Forms.Padding(4);
-            this.dtptime.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.dtptime.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.dtptime.Name = "dtptime";
-            this.dtptime.Size = new System.Drawing.Size(231, 44);
-            this.dtptime.TabIndex = 7;
-            this.dtptime.Value = new System.DateTime(2026, 5, 23, 15, 51, 8, 237);
-            // 
-            // rdbnotime
-            // 
-            this.rdbnotime.AutoSize = true;
-            this.rdbnotime.Checked = true;
-            this.rdbnotime.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.rdbnotime.CheckedState.BorderThickness = 0;
-            this.rdbnotime.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.rdbnotime.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.rdbnotime.CheckedState.InnerOffset = -4;
-            this.rdbnotime.Location = new System.Drawing.Point(20, 85);
-            this.rdbnotime.Name = "rdbnotime";
-            this.rdbnotime.Size = new System.Drawing.Size(100, 20);
-            this.rdbnotime.TabIndex = 9;
-            this.rdbnotime.TabStop = true;
-            this.rdbnotime.Text = "Không Chọn";
-            this.rdbnotime.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.rdbnotime.UncheckedState.BorderThickness = 2;
-            this.rdbnotime.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.rdbnotime.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
-            // 
-            // rdbNam
-            // 
-            this.rdbNam.AutoSize = true;
-            this.rdbNam.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.rdbNam.CheckedState.BorderThickness = 0;
-            this.rdbNam.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.rdbNam.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.rdbNam.CheckedState.InnerOffset = -4;
-            this.rdbNam.Location = new System.Drawing.Point(126, 109);
-            this.rdbNam.Name = "rdbNam";
-            this.rdbNam.Size = new System.Drawing.Size(54, 20);
-            this.rdbNam.TabIndex = 10;
-            this.rdbNam.Text = "năm";
-            this.rdbNam.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.rdbNam.UncheckedState.BorderThickness = 2;
-            this.rdbNam.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.rdbNam.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
-            // 
-            // rdbThang
-            // 
-            this.rdbThang.AutoSize = true;
-            this.rdbThang.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.rdbThang.CheckedState.BorderThickness = 0;
-            this.rdbThang.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.rdbThang.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.rdbThang.CheckedState.InnerOffset = -4;
-            this.rdbThang.Location = new System.Drawing.Point(20, 111);
-            this.rdbThang.Name = "rdbThang";
-            this.rdbThang.Size = new System.Drawing.Size(67, 20);
-            this.rdbThang.TabIndex = 11;
-            this.rdbThang.Text = "Tháng";
-            this.rdbThang.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.rdbThang.UncheckedState.BorderThickness = 2;
-            this.rdbThang.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.rdbThang.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
-            // 
-            // rdbNgay
-            // 
-            this.rdbNgay.AutoSize = true;
-            this.rdbNgay.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.rdbNgay.CheckedState.BorderThickness = 0;
-            this.rdbNgay.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.rdbNgay.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.rdbNgay.CheckedState.InnerOffset = -4;
-            this.rdbNgay.Location = new System.Drawing.Point(126, 85);
-            this.rdbNgay.Name = "rdbNgay";
-            this.rdbNgay.Size = new System.Drawing.Size(61, 20);
-            this.rdbNgay.TabIndex = 12;
-            this.rdbNgay.Text = "Ngày";
-            this.rdbNgay.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.rdbNgay.UncheckedState.BorderThickness = 2;
-            this.rdbNgay.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.rdbNgay.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             // 
             // Formhethong
             // 

@@ -1,0 +1,30 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace QLNS
+{
+    public partial class Formdanhmuc : Form
+    {
+        public Formdanhmuc()
+        {
+            InitializeComponent();
+        }
+
+        private void txtTenPhongBan_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTenChucDanh_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
